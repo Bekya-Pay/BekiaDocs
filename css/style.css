@@ -146,10 +146,18 @@ pre{
     padding: 1.425em 11.5%;
     padding-right: 0;
 }
+.content-logo .logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
 .content-logo img{
     display: inline-block;
     max-width: 70%;
     vertical-align: middle;
+    width: max-content;
+    height: 50px;
 }
 .content-logo span{
     display: inline-block;
@@ -459,6 +467,10 @@ html.menu-opened .burger-menu-icon  .line3 {
 }
 #welcome{
     padding: 50px 20px 0px;
+}
+#welcome .logo{
+    display: flex;
+    align-items: center;
 }
 .singleEndpoint{
     padding-top: 1px;
