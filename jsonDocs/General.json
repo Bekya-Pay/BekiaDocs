@@ -28,7 +28,7 @@
         "endpoint": "/web_form",
         "section": "general",
         "method": "POST",
-        "description": "Submit a New Order From the Web Landing Page and Send Email With the Order Info",
+        "description": "Submit a New Order From the Web Landing Page and Send Email With the Order Info, the Email Will Look Like This: <br/><img src='./images/mailExample.png'/>",
         "parameters": [
             {
                 "paramName": "phone",
