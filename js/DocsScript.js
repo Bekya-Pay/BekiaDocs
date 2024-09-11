@@ -10,6 +10,7 @@ async function fetchJson(file) {
 // Array of JSON file paths
 const jsonFiles = [
     'jsonDocs/General.json',
+    'jsonDocs/Files.json',
     'jsonDocs/Admin.json',
     'jsonDocs/Manager.json',
     'jsonDocs/Worker.json',

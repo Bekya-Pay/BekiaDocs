@@ -1,1 +1,421 @@
-[]
+[
+    {
+        "endpoint": "/customer/complete_signup",
+        "section": "customer",
+        "method": "POST",
+        "description": "Complete the signup process for a customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer Returned From Firebase"
+            },
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "The full name of the customer"
+            },
+            {
+                "paramName": "image",
+                "paramType": "string",
+                "paramDescription": "Profile image URL Returned From File Upload Endpoints"
+            },
+            {
+                "paramName": "phone",
+                "paramType": "string",
+                "paramDescription": "Phone number of the customer"
+            },
+            {
+                "paramName": "paymentID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the payment method"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "name": "John Doe",
+            "image": "https://example.com/profile.jpg",
+            "phone": "+1234567890",
+            "paymentID": "67890"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms the completion of the signup process"
+    },
+    {
+        "endpoint": "/customer/payment_way",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of All Options of Payments in the System",
+        "responseParameters": [
+            {
+                "paramName": "id",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the Payment Way"
+            },
+            {
+                "paramName": "way",
+                "paramType": "string",
+                "paramDescription": "The Name of the Payment"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "way": "Cash"
+            },
+            {
+                "id": 2,
+                "way": "Every 4 Months"
+            }
+        ],
+        "responseDescription": "List of Payments Ways or Methods"
+    },
+    {
+        "endpoint": "/customer/order",
+        "section": "customer",
+        "method": "POST",
+        "description": "Place a new order",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "image",
+                "paramType": "string",
+                "paramDescription": "Image URL for the order"
+            },
+            {
+                "paramName": "pickup_date",
+                "paramType": "string",
+                "paramDescription": "The scheduled pickup date"
+            },
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "(Optional) name for the order",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "image": "https://example.com/order.jpg",
+            "pickup_date": "2024-09-11",
+            "name": "Order 1"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the order has been placed"
+    },
+    {
+        "endpoint": "/customer/active_orders",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of active orders",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "loadBlock": 1,
+            "limit": 10
+        },
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of active orders"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "name": null,
+                "image": "123",
+                "quntity": "123",
+                "order_date": "2024-09-09T10:12:26.000Z",
+                "pickup_date": null,
+                "proccessing_date": null,
+                "status": "ordered"
+            }
+        ],
+        "responseDescription": "List of active orders for the customer"
+    },
+    {
+        "endpoint": "/customer/orders_history",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of past orders",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            },
+            {
+                "paramName": "statusFilter",
+                "paramType": "string",
+                "paramDescription": "(Optional) filter for specific order statuses",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "loadBlock": 1,
+            "limit": 10,
+            "statusFilter": "completed"
+        },
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of past orders"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 2,
+                "name": "order 1",
+                "image": "https://example.com/order.jpg",
+                "quntity": null,
+                "order_date": "2024-09-09T13:07:57.000Z",
+                "pickup_date": null,
+                "proccessing_date": null,
+                "status": "deleted"
+            },
+            {
+                "id": 3,
+                "name": "order1",
+                "image": "https://example.com/order.jpg",
+                "quntity": null,
+                "order_date": "2024-09-09T13:09:42.000Z",
+                "pickup_date": null,
+                "proccessing_date": null,
+                "status": "pickedup"
+            }
+        ],
+        "responseDescription": "List of historical orders for the customer"
+    },
+
+    {
+        "endpoint": "/customer/name_edit",
+        "section": "customer",
+        "method": "POST",
+        "description": "Edit the name of the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "newName",
+                "paramType": "string",
+                "paramDescription": "The new name of the customer"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newName": "Jane Doe"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the name has been updated"
+    },
+    {
+        "endpoint": "/customer/image_edit",
+        "section": "customer",
+        "method": "POST",
+        "description": "Edit the profile image of the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "newImage",
+                "paramType": "string",
+                "paramDescription": "The new image URL for the profile returend From File Upload Endpoints"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newImage": "https://example.com/new_profile.jpg"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the profile image has been updated"
+    },
+    {
+        "endpoint": "/customer/phone_edit",
+        "section": "customer",
+        "method": "POST",
+        "description": "Edit the phone number of the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "newPhone",
+                "paramType": "string",
+                "paramDescription": "The new phone number of the customer"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newPhone": "+0987654321"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the phone number has been updated"
+    },
+    {
+        "endpoint": "/customer/addresses",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of addresses associated with the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345"
+        },
+        "responseParameters": [
+            {
+                "paramName": "id",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the Address"
+            },
+            {
+                "paramName": "city",
+                "paramType": "string",
+                "paramDescription": "The City of the Customer"
+            },
+            {
+                "paramName": "block",
+                "paramType": "string",
+                "paramDescription": "The Block of Which side of the City the Customer is at"
+            },
+            {
+                "paramName": "address",
+                "paramType": "string",
+                "paramDescription": "The address to be added as Text"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 2,
+                "city": "alex",
+                "block": "block1",
+                "address": "456 Elm St, City, Country"
+            },
+            {
+                "id": 3,
+                "city": "alex",
+                "block": "block2",
+                "address": "451 Elm St, City, Country"
+            }
+        ],
+        "responseDescription": "Returns a list of addresses associated with the customer"
+    },
+    {
+        "endpoint": "/customer/address",
+        "section": "customer",
+        "method": "POST",
+        "description": "Add a new address for the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "city",
+                "paramType": "string",
+                "paramDescription": "The City of the Customer"
+            },
+            {
+                "paramName": "block",
+                "paramType": "string",
+                "paramDescription": "The Block of Which side of the City the Customer is at"
+            },
+            {
+                "paramName": "address",
+                "paramType": "string",
+                "paramDescription": "The address to be added as Text"
+            }
+        ],
+        "requestExample": {
+            "userID": "asdasfqwsa21asd",
+            "city":"alex",
+            "block":"block1",
+            "address": "456 Elm St, City, Country"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the address has been added"
+    },
+    {
+        "endpoint": "/customer/address",
+        "section": "customer",
+        "method": "DELETE",
+        "description": "Remove an address associated with the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "addressID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the address to be removed"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "addressID": 1
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the address has been removed"
+    }
+
+]

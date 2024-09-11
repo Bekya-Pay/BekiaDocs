@@ -1,1 +1,69 @@
-[]
+[
+    {
+        "endpoint": "/role_info",
+        "section": "general",
+        "method": "GET",
+        "description": "Get The DB info Of the user With Tokens For Auth",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the customer from Firebase Login"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345"
+        },
+        "responseExample": {
+            "id": "12345",
+            "name": "ahmed mohamed",
+            "phofile_image": "https://example.com/image.png",
+            "phone": "0121",
+            "role": "customer",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImgxIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjYwNzEyMzQsImV4cCI6MTcyODY2MzIzNH0.u-VIQ42qbmwFejC98VLGfHhlgmMS5IER0DS9j_nNJ1A"
+        },
+        "responseDescription": "The User info and the Role"
+    },
+    {
+        "endpoint": "/web_form",
+        "section": "general",
+        "method": "POST",
+        "description": "Submit a New Order From the Web Landing Page and Send Email With the Order Info",
+        "parameters": [
+            {
+                "paramName": "phone",
+                "paramType": "string",
+                "paramDescription": "Phone number of the Guest customer"
+            },
+            {
+                "paramName": "pickup_date",
+                "paramType": "string",
+                "paramDescription": "The scheduled pickup date"
+            },
+            {
+                "paramName": "city",
+                "paramType": "string",
+                "paramDescription": "The City of the Customer"
+            },
+            {
+                "paramName": "description",
+                "paramType": "string",
+                "paramDescription": "The description OF the Order"
+            },
+            {
+                "paramName": "address",
+                "paramType": "string",
+                "paramDescription": "The address to be added as Text"
+            }
+        ],
+        "requestExample": {
+            "phone": "011",
+            "city":"Alex", 
+            "address":"73,teto st",
+            "description":"Plastic and Other materials Trash",
+            "pickup_date":"2024-9-14"
+        },
+        "responseExample": "Done",
+        "responseDescription": "Recive Done if Every Thing Went Fine"
+    }
+]
