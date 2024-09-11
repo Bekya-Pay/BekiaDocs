@@ -9,11 +9,11 @@ async function fetchJson(file) {
 
 // Array of JSON file paths
 const jsonFiles = [
-    'jsonDocs/Info.json',
+    'jsonDocs/General.json',
     'jsonDocs/Admin.json',
     'jsonDocs/Manager.json',
     'jsonDocs/Worker.json',
-    'jsonDocs/User.json'
+    'jsonDocs/Customer.json'
 ];
 
 // Fetch all JSON files and combine their data
