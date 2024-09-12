@@ -115,7 +115,7 @@
         "endpoint": "/worker/assigned_orders",
         "section": "worker",
         "method": "GET",
-        "description": "Retrieve the list of active orders Assigned to the Worker",
+        "description": "Retrieve the list of active orders Assigned to the Worker Sorted By Expected Pick-up Date Setted By Customer",
         "parameters": [
             {
                 "paramName": "userID",

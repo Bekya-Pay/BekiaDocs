@@ -3,7 +3,7 @@
         "endpoint": "/customer/complete_signup",
         "section": "customer",
         "method": "POST",
-        "description": "Complete the signup process for a customer",
+        "description": "Complete the signup process for a customer Sorted By Expected Pick-up Date Setted By The Customer",
         "parameters": [
             {
                 "paramName": "userID",
