@@ -1,1 +1,341 @@
-[]
+[
+    {
+        "endpoint": "/manager/complete_signup",
+        "section": "manager",
+        "method": "POST",
+        "description": "Complete the signup process for a manager",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the manager Returned From Firebase"
+            },
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "The full name of the manager"
+            },
+            {
+                "paramName": "image",
+                "paramType": "string",
+                "paramDescription": "Profile image URL Returned From File Upload Endpoints"
+            },
+            {
+                "paramName": "phone",
+                "paramType": "string",
+                "paramDescription": "Phone number of the manager"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "name": "John Doe",
+            "image": "https://example.com/profile.jpg",
+            "phone": "+1234567890"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms the completion of the signup process"
+    },
+    {
+        "endpoint": "/manager/name_edit",
+        "section": "manager",
+        "method": "POST",
+        "description": "Edit the name of the manager",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the manager"
+            },
+            {
+                "paramName": "newName",
+                "paramType": "string",
+                "paramDescription": "The new name of the manager"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newName": "Jane Doe"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the name has been updated"
+    },
+    {
+        "endpoint": "/manager/image_edit",
+        "section": "manager",
+        "method": "POST",
+        "description": "Edit the profile image of the manager",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the manager"
+            },
+            {
+                "paramName": "newImage",
+                "paramType": "string",
+                "paramDescription": "The new image URL for the profile returend From File Upload Endpoints"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newImage": "https://example.com/new_profile.jpg"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the profile image has been updated"
+    },
+    {
+        "endpoint": "/manager/phone_edit",
+        "section": "manager",
+        "method": "POST",
+        "description": "Edit the phone number of the manager",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the manager"
+            },
+            {
+                "paramName": "newPhone",
+                "paramType": "string",
+                "paramDescription": "The new phone number of the manager"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newPhone": "+0987654321"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the phone number has been updated"
+    },
+    {
+        "endpoint": "/manager/active_order",
+        "section": "manager",
+        "method": "GET",
+        "description": "Retrieve the list of active orders Sorted By Pick-up Date Determined By Customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the manager"
+            },
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "loadBlock": 1,
+            "limit": 10
+        },
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of active orders"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "name": null,
+                "image": "123",
+                "quntity": "123",
+                "order_date": "2024-09-09T10:12:26.000Z",
+                "pickup_date": null,
+                "proccessing_date": null,
+                "status": "ordered"
+            }
+        ],
+        "responseDescription": "List of active orders for the manager"
+    },
+    {
+        "endpoint": "/manager/orders_history",
+        "section": "manager",
+        "method": "GET",
+        "description": "Retrieve the list of past orders Done or Declined",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the manager"
+            },
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            },
+            {
+                "paramName": "statusFilter",
+                "paramType": "string",
+                "paramDescription": "(Optional) filter for specific order statuses",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "loadBlock": 1,
+            "limit": 10,
+            "statusFilter": "completed"
+        },
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of past orders"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 2,
+                "name": "order 1",
+                "image": "https://example.com/order.jpg",
+                "quntity": null,
+                "order_date": "2024-09-09T13:07:57.000Z",
+                "pickup_date": null,
+                "proccessing_date": null,
+                "status": "deleted",
+                "assigned_worker":{
+                    "id":2,
+                    "name":"John Doe",
+                    "phofile_image":"https://Example.com/defualt.png",
+                    "phone":"+1234567890"
+                }
+            },
+            {
+                "id": 3,
+                "name": "order1",
+                "image": "https://example.com/order.jpg",
+                "quntity": null,
+                "order_date": "2024-09-09T13:09:42.000Z",
+                "pickup_date": null,
+                "proccessing_date": null,
+                "status": "pickedup",
+                "assigned_worker":{
+                    "id":2,
+                    "name":"John Doe",
+                    "phofile_image":"https://Example.com/defualt.png",
+                    "phone":"+1234567890"
+                }
+            }
+        ],
+        "responseDescription": "List of historical orders for the manager"
+    },
+    {
+        "endpoint": "/manager/workers_list",
+        "section": "manager",
+        "method": "GET",
+        "description": "Retrieve the list of Workers in order to Assign the orders to Them ",
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of past orders"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": "w1",
+                "name": "Worker 1",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012"
+            },{
+                "id": "w2",
+                "name": "Worker 2",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012"
+            }
+        ],
+        "responseDescription": "List of Workers in the System"
+    },
+    {
+        "endpoint": "/manager/assign_order",
+        "section": "manager",
+        "method": "POST",
+        "description": "Set Order as Declined When it Has a Problem or the Customer Dont want the Service anymore",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the Order"
+            },
+            {
+                "paramName": "workerID",
+                "paramType": "string",
+                "paramDescription": "The ID of the Worker to Assing Order to Him/Her"
+            }
+        ],
+        "requestExample": {
+            "orderID":1231,
+            "workerID":"w1212kjkjhs"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Order has been Assigned to the Worker"
+    },
+
+    {
+        "endpoint": "/manager/decline_order",
+        "section": "manager",
+        "method": "POST",
+        "description": "Set Order as Declined When it Has a Problem or the Customer Dont want the Service anymore",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the Order"
+            }
+        ],
+        "requestExample": {
+            "orderID":1231
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Order has been marked Declined"
+    },
+    {
+        "endpoint": "/manager/mark_proccessed",
+        "section": "manager",
+        "method": "POST",
+        "description": "Mark Order as Proccessed When the Manager Pick it Up from The Worker, and Set The Quntity",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the Order"
+            },
+            {
+                "paramName": "quntity",
+                "paramType": "Number",
+                "paramDescription": "The Quntity of the Waste Recieved, in kg"
+            }
+        ],
+        "requestExample": {
+            "orderID":1231,
+            "quntity":2.5
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Order has been marked Proccessed and Quntity is Set"
+    }
+
+]
