@@ -112,6 +112,27 @@
         "responseDescription": "Confirms that the phone number has been updated"
     },
     {
+        "endpoint": "/worker/order_statuses",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the list of All Order Statuses Avaliable in the System",
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of active orders"
+            }
+        ],
+        "responseExample": [
+            "declined",
+            "deleted",
+            "ordered",
+            "pickedup",
+            "proccessed"
+        ],
+        "responseDescription": "List of order Statuses"
+    },
+    {
         "endpoint": "/worker/assigned_orders",
         "section": "worker",
         "method": "GET",

@@ -110,6 +110,27 @@
         "responseDescription": "Confirms that the order has been placed"
     },
     {
+        "endpoint": "/customer/order_statuses",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of All Order Statuses Avaliable in the System",
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of active orders"
+            }
+        ],
+        "responseExample": [
+            "declined",
+            "deleted",
+            "ordered",
+            "pickedup",
+            "proccessed"
+        ],
+        "responseDescription": "List of order Statuses"
+    },
+    {
         "endpoint": "/customer/active_orders",
         "section": "customer",
         "method": "GET",
