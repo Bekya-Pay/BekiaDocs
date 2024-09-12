@@ -256,13 +256,6 @@
         "section": "manager",
         "method": "GET",
         "description": "Retrieve the list of Workers in order to Assign the orders to Them ",
-        "responseParameters": [
-            {
-                "paramName": "orders",
-                "paramType": "Array",
-                "paramDescription": "List of past orders"
-            }
-        ],
         "responseExample": [
             {
                 "id": "w1",
