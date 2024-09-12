@@ -1,1 +1,280 @@
-[]
+[
+    {
+        "endpoint": "/admin/complete_signup",
+        "section": "admin",
+        "method": "POST",
+        "description": "Complete the signup process for a admin",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the admin Returned From Firebase"
+            },
+            {
+                "paramName": "name",
+                "paramType": "string",
+                "paramDescription": "The full name of the admin"
+            },
+            {
+                "paramName": "image",
+                "paramType": "string",
+                "paramDescription": "Profile image URL Returned From File Upload Endpoints"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "name": "John Doe",
+            "image": "https://example.com/profile.jpg"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms the completion of the signup process"
+    },
+    {
+        "endpoint": "/admin/name_edit",
+        "section": "admin",
+        "method": "POST",
+        "description": "Edit the name of the admin",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the admin"
+            },
+            {
+                "paramName": "newName",
+                "paramType": "string",
+                "paramDescription": "The new name of the admin"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newName": "Jane Doe"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the name has been updated"
+    },
+    {
+        "endpoint": "/admin/image_edit",
+        "section": "admin",
+        "method": "POST",
+        "description": "Edit the profile image of the admin",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the admin"
+            },
+            {
+                "paramName": "newImage",
+                "paramType": "string",
+                "paramDescription": "The new image URL for the profile returend From File Upload Endpoints"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "newImage": "https://example.com/new_profile.jpg"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the profile image has been updated"
+    },
+    {
+        "endpoint": "/admin/order_statuses",
+        "section": "admin",
+        "method": "GET",
+        "description": "Retrieve the list of All Order Statuses Avaliable in the System",
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of active orders"
+            }
+        ],
+        "responseExample": [
+            "declined",
+            "deleted",
+            "ordered",
+            "pickedup",
+            "proccessed"
+        ],
+        "responseDescription": "List of order Statuses"
+    },
+    {
+        "endpoint": "/admin/orders_list",
+        "section": "admin",
+        "method": "GET",
+        "description": "Retrieve the list of All orders,Active or Not, Sorted By Pick-up Date Determined By Customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "string",
+                "paramDescription": "The unique identifier of the admin"
+            },
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            },
+            {
+                "paramName": "statusFilter",
+                "paramType": "string",
+                "paramDescription": "(Optional) filter for specific order statuses",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "loadBlock": 1,
+            "limit": 10
+        },
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of active orders"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "name": null,
+                "image": "123",
+                "quntity": "123",
+                "order_date": "2024-09-09T10:12:26.000Z",
+                "pickup_date": null,
+                "proccessing_date": null,
+                "status": "ordered"
+            }
+        ],
+        "responseDescription": "List of All orders for the admin"
+    },
+    {
+        "endpoint": "/admin/order_analytics",
+        "section": "admin",
+        "method": "GET",
+        "description": "Get an Overview of The System's Orders, Like How Many Done, How Many are Canceled, ...etc",
+        "responseExample": {
+            "declined": 0,
+            "deleted": 1,
+            "ordered": 1,
+            "pickedup": 1,
+            "proccessed": 0
+        },
+        "responseDescription": "Get a List of Numbers Representing The System's Orders"
+    },
+    {
+        "endpoint": "/admin/managers_list",
+        "section": "admin",
+        "method": "GET",
+        "description": "Retrieve the list of Managers in the System",
+        "parameters":[
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            }
+        ],
+        "responseExample": [
+            {
+                "id": "m1",
+                "name": "Manager 1",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012"
+            },{
+                "id": "m2",
+                "name": "Manager 2",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012"
+            }
+        ],
+        "responseDescription": "List of Managers in the System"
+    },
+    {
+        "endpoint": "/admin/workers_list",
+        "section": "admin",
+        "method": "GET",
+        "description": "Retrieve the list of Workers in the System with the number of Orders Each One Had Done",
+        "parameters":[
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            }
+        ],
+        "responseExample": [
+            {
+                "id": "w1",
+                "name": "Worker 1",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012",
+                "orders":15
+            },{
+                "id": "w2",
+                "name": "Worker 2",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012",
+                "orders":29
+            }
+        ],
+        "responseDescription": "List of Workers in the System"
+    },
+    {
+        "endpoint": "/admin/customers_list",
+        "section": "admin",
+        "method": "GET",
+        "description": "Retrieve the list of Customers in the System with the number of Orders Each One Had Ordered",
+        "parameters":[
+            {
+                "paramName": "loadBlock",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            }
+        ],
+        "responseExample": [
+            {
+                "id": "C1",
+                "name": "Customer 1",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012",
+                "orders":4
+            },{
+                "id": "C2",
+                "name": "Customer 2",
+                "phofile_image": "https://Example.com/defualt.png",
+                "phone": "012",
+                "orders":10
+            }
+        ],
+        "responseDescription": "List of Customers in the System"
+    }
+]
