@@ -118,11 +118,6 @@
         "description": "Retrieve the list of active orders Sorted By Pick-up Date Determined By Customer",
         "parameters": [
             {
-                "paramName": "userID",
-                "paramType": "string",
-                "paramDescription": "The unique identifier of the manager"
-            },
-            {
                 "paramName": "loadBlock",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
@@ -167,11 +162,6 @@
         "method": "GET",
         "description": "Retrieve the list of past orders Done or Declined",
         "parameters": [
-            {
-                "paramName": "userID",
-                "paramType": "string",
-                "paramDescription": "The unique identifier of the manager"
-            },
             {
                 "paramName": "loadBlock",
                 "paramType": "number",
