@@ -21,7 +21,6 @@ const jsonFiles = [
 Promise.all(jsonFiles.map(fetchJson))
     .then(jsonArrays => {
         const jsonData = jsonArrays.flat();
-        console.log(jsonData);
         processJsonData(jsonData);
     })
     .catch(error => {
