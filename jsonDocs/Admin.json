@@ -7,17 +7,17 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the admin Returned From Firebase"
             },
             {
                 "paramName": "name",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The full name of the admin"
             },
             {
                 "paramName": "image",
-                "paramType": "string",
+                "paramType": "String (500)",
                 "paramDescription": "Profile image URL Returned From File Upload Endpoints"
             }
         ],
@@ -44,12 +44,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the admin"
             },
             {
                 "paramName": "newName",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The new name of the admin"
             }
         ],
@@ -69,12 +69,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the admin"
             },
             {
                 "paramName": "newImage",
-                "paramType": "string",
+                "paramType": "String (500)",
                 "paramDescription": "The new image URL for the profile returend From File Upload Endpoints"
             }
         ],
@@ -115,7 +115,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the admin"
             },
             {
@@ -132,7 +132,7 @@
             },
             {
                 "paramName": "statusFilter",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "(Optional) filter for specific order statuses",
                 "optional": true
             }
@@ -302,7 +302,7 @@
         "parameters": [
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Selected City to Get The Block inside it"
             }
         ],
@@ -331,12 +331,12 @@
         "parameters": [
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The City Name"
             },
             {
                 "paramName": "blockName",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Name of the Block"
             }
         ],

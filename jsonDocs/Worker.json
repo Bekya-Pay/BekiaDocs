@@ -7,22 +7,22 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker Returned From Firebase"
             },
             {
                 "paramName": "name",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The full name of the worker"
             },
             {
                 "paramName": "image",
-                "paramType": "string",
+                "paramType": "String (500)",
                 "paramDescription": "Profile image URL Returned From File Upload Endpoints"
             },
             {
                 "paramName": "phone",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "Phone number of the worker"
             }
         ],
@@ -51,12 +51,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {
                 "paramName": "newName",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The new name of the worker"
             }
         ],
@@ -76,12 +76,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {
                 "paramName": "newImage",
-                "paramType": "string",
+                "paramType": "String (500)",
                 "paramDescription": "The new image URL for the profile returend From File Upload Endpoints"
             }
         ],
@@ -101,12 +101,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {
                 "paramName": "newPhone",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The new phone number of the worker"
             }
         ],
@@ -147,7 +147,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {
@@ -197,7 +197,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {
@@ -214,7 +214,7 @@
             },
             {
                 "paramName": "statusFilter",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "(Optional) filter for specific order statuses",
                 "optional": true
             }
@@ -275,7 +275,7 @@
         "parameters": [
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Selected City to Get The Block inside it"
             }
         ],
@@ -304,7 +304,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             }
         ],
@@ -319,17 +319,17 @@
             },
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The City of the Worker"
             },
             {
                 "paramName": "block",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Block of Which side of the City the Worker is at"
             },
             {
                 "paramName": "address",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The address to be added as Text"
             }
         ],
@@ -357,22 +357,22 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The City of the Worker"
             },
             {
                 "paramName": "block",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Block of Which side of the City the Worker is at"
             },
             {
                 "paramName": "address",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The address to be added as Text"
             }
         ],
@@ -394,7 +394,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {
@@ -419,7 +419,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the worker"
             },
             {

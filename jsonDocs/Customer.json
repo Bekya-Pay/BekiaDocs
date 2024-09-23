@@ -7,27 +7,27 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer Returned From Firebase"
             },
             {
                 "paramName": "name",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The full name of the customer"
             },
             {
                 "paramName": "image",
-                "paramType": "string",
+                "paramType": "String (500)",
                 "paramDescription": "Profile image URL Returned From File Upload Endpoints"
             },
             {
                 "paramName": "phone",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "Phone number of the customer"
             },
             {
                 "paramName": "paymentID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the payment method"
             }
         ],
@@ -57,12 +57,12 @@
         "responseParameters": [
             {
                 "paramName": "id",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the Payment Way"
             },
             {
                 "paramName": "way",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Name of the Payment"
             }
         ],
@@ -86,22 +86,22 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
                 "paramName": "image",
-                "paramType": "string",
+                "paramType": "String (500)",
                 "paramDescription": "Image URL for the order"
             },
             {
                 "paramName": "pickup_date",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The scheduled pickup date"
             },
             {
                 "paramName": "name",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "(Optional) name for the order",
                 "optional": true
             }
@@ -145,7 +145,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
@@ -195,7 +195,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
@@ -212,7 +212,7 @@
             },
             {
                 "paramName": "statusFilter",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "(Optional) filter for specific order statuses",
                 "optional": true
             }
@@ -263,12 +263,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
                 "paramName": "newName",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The new name of the customer"
             }
         ],
@@ -288,12 +288,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
                 "paramName": "newImage",
-                "paramType": "string",
+                "paramType": "String (500)",
                 "paramDescription": "The new image URL for the profile returend From File Upload Endpoints"
             }
         ],
@@ -313,12 +313,12 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
                 "paramName": "newPhone",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The new phone number of the customer"
             }
         ],
@@ -349,7 +349,7 @@
         "parameters": [
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Selected City to Get The Block inside it"
             }
         ],
@@ -378,7 +378,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             }
         ],
@@ -393,17 +393,17 @@
             },
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The City of the Customer"
             },
             {
                 "paramName": "block",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Block of Which side of the City the Customer is at"
             },
             {
                 "paramName": "address",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The address to be added as Text"
             }
         ],
@@ -431,22 +431,22 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
                 "paramName": "city",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The City of the Customer"
             },
             {
                 "paramName": "block",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The Block of Which side of the City the Customer is at"
             },
             {
                 "paramName": "address",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The address to be added as Text"
             }
         ],
@@ -468,7 +468,7 @@
         "parameters": [
             {
                 "paramName": "userID",
-                "paramType": "string",
+                "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
             },
             {
