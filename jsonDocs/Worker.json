@@ -33,8 +33,15 @@
             "phone": "+1234567890"
         },
         "responseParameters": [],
-        "responseExample": "Done",
-        "responseDescription": "Confirms the completion of the signup process"
+        "responseExample": {
+            "id": "12345",
+            "name": "John Doe",
+            "phofile_image": "https://example.com/profile.jpg",
+            "phone": "+1234567890",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Img1Iiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzI3MTIzMjgyLCJleHAiOjE3Mjk3MTUyODJ9.EmN6_uTLTdB6Wtm8VJd9G9frjWidpDBx79Zho9CDMpQ",
+            "role": "worker"
+        },
+        "responseDescription": "Return the Login Info For The User"
     },
     {
         "endpoint": "/worker/name_edit",
@@ -248,6 +255,46 @@
             }
         ],
         "responseDescription": "List of historical orders for the worker"
+    },
+    {
+        "endpoint": "/worker/cities",
+        "section": "worker",
+        "method": "GET",
+        "description": "Get The List of all Cities That The System Have",
+        "responseExample": [
+            "Alexandria",
+            "Cairo"
+        ],
+        "responseDescription": "Returns a list of Cities That in the System"
+    },
+    {
+        "endpoint": "/worker/address_blocks",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the list of address Blocks That in a Selected City",
+        "parameters": [
+            {
+                "paramName": "city",
+                "paramType": "string",
+                "paramDescription": "The Selected City to Get The Block inside it"
+            }
+        ],
+        "requestExample": {
+            "city": "Alexandria"
+        },
+        "responseExample": [
+            {
+                "id": 1,
+                "city": "alex",
+                "block": "العجمي"
+            },
+            {
+                "id": 2,
+                "city": "alex",
+                "block": "المنتدرة"
+            }
+        ],
+        "responseDescription": "Returns the list of address Blocks That in a Selected City"
     },
     {
         "endpoint": "/worker/addresses",
