@@ -190,6 +190,32 @@
         "responseDescription": "List of active orders for the worker"
     },
     {
+        "endpoint": "/worker/waste_types",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the list of All Order Waste Types Avaliable in the System",
+        "responseExample": [
+            "electronics",
+            "solid",
+            "liquid",
+            "glass"
+        ],
+        "responseDescription": "List of order Waste Types"
+    },
+    {
+        "endpoint": "/worker/orders_type_count",
+        "section": "worker",
+        "method": "GET",
+        "description": "Count How Many Orders in the Defualt Type or Other",
+        "responseExample": {
+            "solid": 1,
+            "liquid": 1,
+            "glass": 1,
+            "other":0
+        },
+        "responseDescription": "List of How Many Orders in the Defualt Type or Other"
+    },
+    {
         "endpoint": "/worker/orders_history",
         "section": "worker",
         "method": "GET",
@@ -217,13 +243,20 @@
                 "paramType": "String (255)",
                 "paramDescription": "(Optional) filter for specific order statuses",
                 "optional": true
+            },
+            {
+                "paramName": "wasteType",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) filter for specific order Waste Type",
+                "optional": true
             }
         ],
         "requestExample": {
             "userID": "12345",
             "loadBlock": 1,
             "limit": 10,
-            "statusFilter": "completed"
+            "statusFilter": "completed",
+            "wasteType":"glass"
         },
         "responseParameters": [
             {

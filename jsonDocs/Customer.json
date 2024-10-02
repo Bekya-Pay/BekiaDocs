@@ -90,6 +90,18 @@
                 "paramDescription": "The unique identifier of the customer"
             },
             {
+                "paramName": "waste_type",
+                "paramType": "String (255)",
+                "paramDescription": "order Waste Type",
+                "optional": true
+            },
+            {
+                "paramName": "description",
+                "paramType": "String (500)",
+                "paramDescription": "(Optional) a Description for the order",
+                "optional": true
+            },
+            {
                 "paramName": "image",
                 "paramType": "String (500)",
                 "paramDescription": "Image URL for the order"
@@ -188,6 +200,32 @@
         "responseDescription": "List of active orders for the customer"
     },
     {
+        "endpoint": "/customer/waste_types",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of All Order Waste Types Avaliable in the System",
+        "responseExample": [
+            "electronics",
+            "solid",
+            "liquid",
+            "glass"
+        ],
+        "responseDescription": "List of order Waste Types"
+    },
+    {
+        "endpoint": "/customer/orders_type_count",
+        "section": "customer",
+        "method": "GET",
+        "description": "Count How Many Orders in the Defualt Type or Other",
+        "responseExample": {
+            "solid": 1,
+            "liquid": 1,
+            "glass": 1,
+            "other":0
+        },
+        "responseDescription": "List of How Many Orders in the Defualt Type or Other"
+    },
+    {
         "endpoint": "/customer/orders_history",
         "section": "customer",
         "method": "GET",
@@ -215,12 +253,19 @@
                 "paramType": "String (255)",
                 "paramDescription": "(Optional) filter for specific order statuses",
                 "optional": true
+            },
+            {
+                "paramName": "wasteType",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) filter for specific order Waste Type",
+                "optional": true
             }
         ],
         "requestExample": {
             "userID": "12345",
             "loadBlock": 1,
             "limit": 10,
+            "wasteType":"solid",
             "statusFilter": "completed"
         },
         "responseParameters": [
