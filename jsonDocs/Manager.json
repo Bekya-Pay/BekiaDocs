@@ -146,7 +146,7 @@
         "description": "Retrieve the list of active orders Sorted By Pick-up Date Determined By Customer",
         "parameters": [
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -160,7 +160,7 @@
         ],
         "requestExample": {
             "userID": "12345",
-            "loadBlock": 1,
+            "page": 1,
             "limit": 10
         },
         "responseParameters": [
@@ -217,7 +217,7 @@
         "description": "Retrieve the list of past orders Done or Declined",
         "parameters": [
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -243,7 +243,7 @@
         ],
         "requestExample": {
             "userID": "12345",
-            "loadBlock": 1,
+            "page": 1,
             "limit": 10,
             "statusFilter": "completed",
             "wasteType":"liguid"

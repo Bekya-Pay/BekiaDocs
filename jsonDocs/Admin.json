@@ -119,7 +119,7 @@
                 "paramDescription": "The unique identifier of the admin"
             },
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -139,7 +139,7 @@
         ],
         "requestExample": {
             "userID": "12345",
-            "loadBlock": 1,
+            "page": 1,
             "limit": 10
         },
         "responseParameters": [
@@ -184,7 +184,7 @@
         "description": "Retrieve the list of Managers in the System",
         "parameters":[
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -218,7 +218,7 @@
         "description": "Retrieve the list of Workers in the System with the number of Orders Each One Had Done",
         "parameters":[
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -254,7 +254,7 @@
         "description": "Retrieve the list of Customers in the System with the number of Orders Each One Had Ordered",
         "parameters":[
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true

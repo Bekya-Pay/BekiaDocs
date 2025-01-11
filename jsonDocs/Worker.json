@@ -151,7 +151,7 @@
                 "paramDescription": "The unique identifier of the worker"
             },
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -165,7 +165,7 @@
         ],
         "requestExample": {
             "userID": "12345",
-            "loadBlock": 1,
+            "page": 1,
             "limit": 10
         },
         "responseParameters": [
@@ -227,7 +227,7 @@
                 "paramDescription": "The unique identifier of the worker"
             },
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -253,7 +253,7 @@
         ],
         "requestExample": {
             "userID": "12345",
-            "loadBlock": 1,
+            "page": 1,
             "limit": 10,
             "statusFilter": "completed",
             "wasteType":"glass"

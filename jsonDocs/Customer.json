@@ -161,7 +161,7 @@
                 "paramDescription": "The unique identifier of the customer"
             },
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -175,7 +175,7 @@
         ],
         "requestExample": {
             "userID": "12345",
-            "loadBlock": 1,
+            "page": 1,
             "limit": 10
         },
         "responseParameters": [
@@ -237,7 +237,7 @@
                 "paramDescription": "The unique identifier of the customer"
             },
             {
-                "paramName": "loadBlock",
+                "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
                 "optional": true
@@ -263,7 +263,7 @@
         ],
         "requestExample": {
             "userID": "12345",
-            "loadBlock": 1,
+            "page": 1,
             "limit": 10,
             "wasteType":"solid",
             "statusFilter": "completed"
