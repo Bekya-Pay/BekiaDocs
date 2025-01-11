@@ -50,18 +50,18 @@
         "responseDescription": "Return the Login Info For The User"
     },
     {
-        "endpoint": "/customer/payment_way",
+        "endpoint": "/customer/payment_packages",
         "section": "customer",
         "method": "GET",
-        "description": "Retrieve the list of All Options of Payments in the System",
+        "description": "Retrieve the list of All Packages of Payments in the System",
         "responseParameters": [
             {
                 "paramName": "id",
                 "paramType": "String (255)",
-                "paramDescription": "The unique identifier of the Payment Way"
+                "paramDescription": "The unique identifier of the Payment package"
             },
             {
-                "paramName": "way",
+                "paramName": "package",
                 "paramType": "String (255)",
                 "paramDescription": "The Name of the Payment"
             }
@@ -69,14 +69,14 @@
         "responseExample": [
             {
                 "id": 1,
-                "way": "Cash"
+                "package": "Cash"
             },
             {
                 "id": 2,
-                "way": "Every 4 Months"
+                "package": "Every 4 Months"
             }
         ],
-        "responseDescription": "List of Payments Ways or Methods"
+        "responseDescription": "List of Payments packages or Methods"
     },
     {
         "endpoint": "/customer/order",
