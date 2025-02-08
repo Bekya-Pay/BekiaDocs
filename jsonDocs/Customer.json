@@ -60,6 +60,34 @@
         "responseDescription": "Return the Login Info For The User"
     },
     {
+        "endpoint": "/customer/customer_info",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get the Main information of the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer Returned From Firebase"
+            }
+        ],
+        "responseParameters": [],
+        "responseExample": {
+            "id": "hasdasaafasfas1",
+            "name": "ahmed mohamed",
+            "phofile_image": "image2",
+            "phone": "0121",
+            "frozen_balance": 100,
+            "balance": 1000,
+            "visits_count": 2,
+            "payment_method": {
+                "id": 1,
+                "package": "Cash"
+            }
+        },
+        "responseDescription": "Return the Main Info For The User"
+    },
+    {
         "endpoint": "/customer/payment_packages",
         "section": "customer",
         "method": "GET",
@@ -100,21 +128,9 @@
                 "paramDescription": "The unique identifier of the customer"
             },
             {
-                "paramName": "waste_type",
-                "paramType": "String (255)",
-                "paramDescription": "order Waste Type",
-                "optional": true
-            },
-            {
-                "paramName": "description",
-                "paramType": "String (500)",
-                "paramDescription": "(Optional) a Description for the order",
-                "optional": true
-            },
-            {
-                "paramName": "image",
-                "paramType": "String (500)",
-                "paramDescription": "Image URL for the order"
+                "paramName": "addressID",
+                "paramType": "number",
+                "paramDescription": "The ID of Selected Address"
             },
             {
                 "paramName": "pickup_date",
@@ -126,14 +142,37 @@
                 "paramType": "String (255)",
                 "paramDescription": "(Optional) name for the order",
                 "optional": true
+            },
+            {
+                "paramName": "details",
+                "paramType": "Array",
+                "paramDescription": "List of waste items in the order with their details",
+                "optional": true
             }
         ],
         "requestExample": {
-            "userID": "12345",
-            "image": "https://example.com/order.jpg",
-            "pickup_date": "2024-09-11",
-            "name": "Order 1"
-        },
+            "userID":"asdfasfas",
+            "pickup_date":"2001-10-12",
+            "addressID":1,
+            "details":[
+                {
+                    "category":"cans",
+                    "weight":3,
+                    "count":40,
+                    "image":"https://imagelink",
+                    "description":"any description Here"
+                },
+                {
+                    "category":"solid",
+                    "weight":3,
+                    "count":40,
+                    "image":"https://imagelink",
+                    "description":"any description Here"
+                }
+        
+            ]
+        }
+        ,
         "responseParameters": [],
         "responseExample": "Done",
         "responseDescription": "Confirms that the order has been placed"
@@ -208,6 +247,65 @@
             }
         ],
         "responseDescription": "List of active orders for the customer"
+    },
+    {
+        "endpoint": "/customer/order_details",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve Details about Order",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "orderID",
+                "paramType": "number",
+                "paramDescription": "The ID of the Order",
+                "optional": true
+            }
+        ],
+        
+        "responseExample": {
+            "id": 3,
+            "name": "Daily Order",
+            "image": "http://image",
+            "order_date": "2024-09-09T13:09:42.000Z",
+            "pickup_date": null,
+            "proccessing_date": null,
+            "price": 0,
+            "status": "ordered",
+            "details": [
+                {
+                    "id": 1,
+                    "description": null,
+                    "image": "http://",
+                    "waste_type": "solid",
+                    "weight": 10,
+                    "count": null
+                }
+            ]
+        },
+        "responseDescription": "Order Details with Each Waste and it's Info"
+    },
+    {
+        "endpoint": "/customer/history_statistics",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get The Sum of Previous Orders Prices and Wieghts",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            }
+        ],
+        "responseExample": {
+            "total_price": 50,
+            "total_weight": 10
+        },
+        "responseDescription": "Total Price and Weight of Previous Orders"
     },
     {
         "endpoint": "/customer/waste_types",
