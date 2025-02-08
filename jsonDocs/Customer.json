@@ -387,15 +387,15 @@
         "responseDescription": "Returns a list of Cities That in the System"
     },
     {
-        "endpoint": "/customer/address_blocks",
+        "endpoint": "/customer/address_zones",
         "section": "customer",
         "method": "GET",
-        "description": "Retrieve the list of address Blocks That in a Selected City",
+        "description": "Retrieve the list of address Zones That in a Selected City",
         "parameters": [
             {
                 "paramName": "city",
                 "paramType": "String (255)",
-                "paramDescription": "The Selected City to Get The Block inside it"
+                "paramDescription": "The Selected City to Get The Zone inside it"
             }
         ],
         "requestExample": {
@@ -405,15 +405,15 @@
             {
                 "id": 1,
                 "city": "alex",
-                "block": "العجمي"
+                "zone": "العجمي"
             },
             {
                 "id": 2,
                 "city": "alex",
-                "block": "المنتدرة"
+                "zone": "المنتدرة"
             }
         ],
-        "responseDescription": "Returns the list of address Blocks That in a Selected City"
+        "responseDescription": "Returns the list of address Zones That in a Selected City"
     },
     {
         "endpoint": "/customer/addresses",
@@ -442,9 +442,9 @@
                 "paramDescription": "The City of the Customer"
             },
             {
-                "paramName": "block",
+                "paramName": "zone",
                 "paramType": "String (255)",
-                "paramDescription": "The Block of Which side of the City the Customer is at"
+                "paramDescription": "The Zone of Which side of the City the Customer is at"
             },
             {
                 "paramName": "address",
@@ -456,13 +456,13 @@
             {
                 "id": 2,
                 "city": "alex",
-                "block": "block1",
+                "zone": "zone1",
                 "address": "456 Elm St, City, Country"
             },
             {
                 "id": 3,
                 "city": "alex",
-                "block": "block2",
+                "zone": "zone2",
                 "address": "451 Elm St, City, Country"
             }
         ],
@@ -485,9 +485,9 @@
                 "paramDescription": "The City of the Customer"
             },
             {
-                "paramName": "block",
+                "paramName": "zone",
                 "paramType": "String (255)",
-                "paramDescription": "The Block of Which side of the City the Customer is at"
+                "paramDescription": "The Zone of Which side of the City the Customer is at"
             },
             {
                 "paramName": "address",
@@ -498,7 +498,7 @@
         "requestExample": {
             "userID": "asdasfqwsa21asd",
             "city":"alex",
-            "block":"block1",
+            "zone":"zone1",
             "address": "456 Elm St, City, Country"
         },
         "responseParameters": [],

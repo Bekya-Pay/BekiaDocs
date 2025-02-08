@@ -295,15 +295,15 @@
         "responseDescription": "Returns a list of Cities That in the System"
     },
     {
-        "endpoint": "/admin/address_blocks",
+        "endpoint": "/admin/address_zones",
         "section": "admin",
         "method": "GET",
-        "description": "Retrieve the list of address Blocks That in a Selected City",
+        "description": "Retrieve the list of address Zones That in a Selected City",
         "parameters": [
             {
                 "paramName": "city",
                 "paramType": "String (255)",
-                "paramDescription": "The Selected City to Get The Block inside it"
+                "paramDescription": "The Selected City to Get The Zone inside it"
             }
         ],
         "requestExample": {
@@ -313,21 +313,21 @@
             {
                 "id": 1,
                 "city": "alex",
-                "block": "العجمي"
+                "zone": "العجمي"
             },
             {
                 "id": 2,
                 "city": "alex",
-                "block": "المنتدرة"
+                "zone": "المنتدرة"
             }
         ],
-        "responseDescription": "Returns the list of address Blocks That in a Selected City"
+        "responseDescription": "Returns the list of address Zones That in a Selected City"
     },
     {
-        "endpoint": "/admin/new_block",
+        "endpoint": "/admin/new_zone",
         "section": "admin",
         "method": "POST",
-        "description": "Add New Block to the System",
+        "description": "Add New Zone to the System",
         "parameters": [
             {
                 "paramName": "city",
@@ -335,16 +335,16 @@
                 "paramDescription": "The City Name"
             },
             {
-                "paramName": "blockName",
+                "paramName": "zoneName",
                 "paramType": "String (255)",
-                "paramDescription": "The Name of the Block"
+                "paramDescription": "The Name of the Zone"
             }
         ],
         "requestExample": {
             "city": "Alexandria",
-            "blockName":"المندرة"
+            "zoneName":"المندرة"
         },
         "responseExample": "Done",
-        "responseDescription": "Confirms that the Block has been Added"
+        "responseDescription": "Confirms that the Zone has been Added"
     }
 ]
