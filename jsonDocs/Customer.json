@@ -16,19 +16,29 @@
                 "paramDescription": "The full name of the customer"
             },
             {
+                "paramName": "address",
+                "paramType": "String (255)",
+                "paramDescription": "The Address of the customer"
+            },
+            {
+                "paramName": "zoneID",
+                "paramType": "Number",
+                "paramDescription": "The Selected Zone of the customer"
+            },
+            {
+                "paramName": "packageID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the payment Packaghe, Cash, Bank, etc.."
+            },
+            {
                 "paramName": "image",
                 "paramType": "String (500)",
-                "paramDescription": "Profile image URL Returned From File Upload Endpoints"
+                "paramDescription": "(optional) Profile image URL Returned From File Upload Endpoints"
             },
             {
                 "paramName": "phone",
                 "paramType": "String (255)",
-                "paramDescription": "Phone number of the customer"
-            },
-            {
-                "paramName": "paymentID",
-                "paramType": "String (255)",
-                "paramDescription": "The unique identifier of the payment method"
+                "paramDescription": "(optional) Phone number of the customer"
             }
         ],
         "requestExample": {
