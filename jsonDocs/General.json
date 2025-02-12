@@ -65,5 +65,25 @@
         },
         "responseExample": "Done",
         "responseDescription": "Recive Done if Every Thing Went Fine"
+    },
+    {
+        "endpoint": "/check_phone",
+        "section": "general",
+        "method": "GET",
+        "description": "Check if the Phone Number is Already Registered in System",
+        "parameters": [
+            {
+                "paramName": "phone",
+                "paramType": "String (255)",
+                "paramDescription": "The Phone that Needs to Be checked"
+            }
+        ],
+        "requestExample": {
+            "phone": "012345678"
+        },
+        "responseExample": {
+            "exist": true
+        },
+        "responseDescription": "Return True if the Phone Number is Already Registered"
     }
 ]
