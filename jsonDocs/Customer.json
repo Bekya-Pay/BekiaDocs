@@ -280,6 +280,7 @@
             "pickup_date": null,
             "proccessing_date": null,
             "price": 0,
+            "total_weight":10,
             "status": "ordered",
             "details": [
                 {
