@@ -490,6 +490,31 @@
         "responseDescription": "Confirms that the phone number has been updated"
     },
     {
+        "endpoint": "/customer/change_payment_method",
+        "section": "customer",
+        "method": "POST",
+        "description": "Change a Different Payment Method for the customer only f he has a Closed Visits Cycle",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "packageID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the new Payment Package"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "packageID": 2
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the package has been updated"
+    },
+    {
         "endpoint": "/customer/cities",
         "section": "customer",
         "method": "GET",
