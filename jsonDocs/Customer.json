@@ -21,6 +21,11 @@
                 "paramDescription": "The Address of the customer"
             },
             {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "The City of the Address of the customer"
+            },
+            {
                 "paramName": "zoneID",
                 "paramType": "Number",
                 "paramDescription": "The Selected Zone of the customer"
