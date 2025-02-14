@@ -9,6 +9,11 @@
                 "paramName": "userID",
                 "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer from Firebase Login"
+            },
+            {
+                "paramName": "FirebaseToken",
+                "paramType": "String (255)",
+                "paramDescription": "The Auth Token of the User From Firebase"
             }
         ],
         "requestExample": {

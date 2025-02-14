@@ -39,6 +39,11 @@
                 "paramName": "phone",
                 "paramType": "String (255)",
                 "paramDescription": "(optional) Phone number of the customer"
+            },
+            {
+                "paramName": "FirebaseToken",
+                "paramType": "String (255)",
+                "paramDescription": "The Auth Token of the User From Firebase"
             }
         ],
         "requestExample": {
