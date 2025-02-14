@@ -673,6 +673,24 @@
         "responseParameters": [],
         "responseExample": "Done",
         "responseDescription": "Confirms that the address has been removed"
+    },
+    {
+        "endpoint": "/customer/delete_account",
+        "section": "customer",
+        "method": "DELETE",
+        "description": "Delete the account of the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345"
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the account has been deleted"
     }
 
 ]
