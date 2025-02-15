@@ -451,23 +451,62 @@
         "description": "Mark Order as Picked-up When the Worker Pick it Up from The Customer",
         "parameters": [
             {
-                "paramName": "userID",
-                "paramType": "String (255)",
-                "paramDescription": "The unique identifier of the worker"
-            },
-            {
                 "paramName": "orderID",
                 "paramType": "Number",
                 "paramDescription": "The ID of the Order"
+            },
+            {
+                "paramName": "price",
+                "paramType": "Number",
+                "paramDescription": "The Estimated Price of the Order"
+            },
+            {
+                "paramName": "nowDate",
+                "paramType": "Date",
+                "paramDescription": "The Date of Today to Set as Processing Date"
+            },
+            {
+                "paramName": "details",
+                "paramType": "Array",
+                "paramDescription": "Each Waste with it's Details, To Confirm the Detail for Each Waste Type, like for Cans the Count is x and the Weight is y"
+            },
+            {
+                "paramName": "details.id",
+                "paramType": "Number",
+                "paramDescription": "The ID of the Waste Type"
+            },
+            {
+                "paramName": "details.count",
+                "paramType": "Number",
+                "paramDescription": "The Count of the Waste Type"
+            },
+            {
+                "paramName": "details.weight",
+                "paramType": "Number",
+                "paramDescription": "The Weight of the Waste Type"
             }
+            
         ],
         "requestExample": {
-            "userID": "asdasfqwsa21asd",
-            "orderID":1231
+            "orderID":1231,
+            "price":250,
+            "nowDate":"2024-09-09T13:09:42.000Z",
+            "details":[
+                {
+                    "id":10,
+                    "count":10,
+                    "weight":20
+                },
+                {
+                    "id":4,
+                    "count":10,
+                    "weight":20
+                }
+            ]
         },
         "responseParameters": [],
         "responseExample": "Done",
-        "responseDescription": "Confirms that the Order has been marked Picked-up"
+        "responseDescription": "Confirms that the Order has been marked Picked-up and Quntity and Price are Set"
     }
 
 ]
