@@ -20,12 +20,17 @@
             "userID": "12345"
         },
         "responseExample": {
-            "id": "12345",
+            "id": "h1",
             "name": "ahmed mohamed",
-            "phofile_image": "https://example.com/image.png",
-            "phone": "0121",
-            "role": "customer",
-            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImgxIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MjYwNzEyMzQsImV4cCI6MTcyODY2MzIzNH0.u-VIQ42qbmwFejC98VLGfHhlgmMS5IER0DS9j_nNJ1A"
+            "phofile_image": "image2",
+            "frozen_balance": 0,
+            "balance": 0,
+            "visits_count": 0,
+            "payment_method": {
+                "id": 1,
+                "package": "Cash"
+            },
+            "phone": "011"
         },
         "responseDescription": "The User info and the Role"
     },

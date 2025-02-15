@@ -54,15 +54,21 @@
         "requestExample": {
             "userID": "12345",
             "name": "John Doe",
+            "city":"Alexandria",
+            "address": "456 Elm St, City, Country",
+            "zoneID": 1,
             "image": "https://example.com/profile.jpg",
             "phone": "+1234567890",
-            "paymentID": "67890"
+            "packageID": "67890"
         },
         "responseParameters": [],
         "responseExample": {
             "id": "12345",
             "name": "John Doe",
             "phofile_image": "https://example.com/profile.jpg",
+            "frozen_balance": 0,
+            "balance": 0,
+            "visits_count": 0,
             "phone": "+1234567890",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Img1Iiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzI3MTIzMjgyLCJleHAiOjE3Mjk3MTUyODJ9.EmN6_uTLTdB6Wtm8VJd9G9frjWidpDBx79Zho9CDMpQ",
             "role": "customer"
