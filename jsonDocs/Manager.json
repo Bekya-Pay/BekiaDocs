@@ -397,6 +397,31 @@
         "responseParameters": [],
         "responseExample": "Done",
         "responseDescription": "Confirms that the Order has been marked Proccessed and Quntity and Price are Set"
+    },
+    {
+        "endpoint": "/manager/edit_zones_date",
+        "section": "manager",
+        "method": "POST",
+        "description": "Edit The Available Dates for the Zones",
+        "parameters": [
+            {
+                "paramName": "largeZone",
+                "paramType": "String (255)",
+                "paramDescription": "The Name of the Large Zone"
+            },
+            {
+                "paramName": "days",
+                "paramType": "String (255)",
+                "paramDescription": "The List of Days as String Separated by ' | '"
+            }
+        ],
+        "requestExample": {
+            "largeZone":"قبلي",
+            "days":"Tuesday | Wednesday | Thursday"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Order has been marked Proccessed and Quntity and Price are Set"
     }
 
 ]
