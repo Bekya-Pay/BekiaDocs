@@ -542,11 +542,7 @@
         "method": "GET",
         "description": "Retrieve the list of address Zones That in a Selected City",
         "parameters": [
-            {
-                "paramName": "city",
-                "paramType": "String (255)",
-                "paramDescription": "The Selected City to Get The Zone inside it"
-            },
+
             {
                 "paramName": "nowDate",
                 "paramType": "Date",
@@ -559,7 +555,6 @@
             }
         ],
         "requestExample": {
-            "city": "Alexandria",
             "nowDate":"2021-10-12",
             "weeks": 2
         },
