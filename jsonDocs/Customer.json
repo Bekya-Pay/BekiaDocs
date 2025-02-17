@@ -543,10 +543,41 @@
         "description": "Retrieve the list of address Zones That in a Selected City",
         "parameters": [
 
+            
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "city": "Alexandria",
+                "zone": "ميامي",
+                "largeZone": "بحري",
+                "daysString": "Tuesday | Sunday"
+            },
+            {
+                "id": 2,
+                "city": "Alexandria",
+                "zone": "السيوف",
+                "largeZone": "قبلي",
+                "daysString": "Saturday | Monday"
+            }
+        ],
+        "responseDescription": "Returns the list of address Zones That in a Selected City"
+    },
+    {
+        "endpoint": "/customer/address_zones_dates",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of address Zone With Dates With Zone ID",
+        "parameters": [
+            {
+                "paramName": "zoneID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the Zone"
+            },
             {
                 "paramName": "nowDate",
                 "paramType": "Date",
-                "paramDescription": "(optional) The Date of Today to Be Used to Get the Dates of the Next Available Weeks"
+                "paramDescription": "The Date of Today to Be Used to Get the Dates of the Next Available Weeks"
             },
             {
                 "paramName": "weeks",
@@ -556,10 +587,9 @@
         ],
         "requestExample": {
             "nowDate":"2021-10-12",
-            "weeks": 2
+            "zoneID": 2
         },
-        "responseExample": [
-            {
+        "responseExample": {
                 "id": 1,
                 "city": "Alexandria",
                 "zone": "ميامي",
@@ -584,32 +614,6 @@
                     }
                 ]
             },
-            {
-                "id": 2,
-                "city": "Alexandria",
-                "zone": "السيوف",
-                "largeZone": "قبلي",
-                "daysString": "Saturday | Monday",
-                "nextDates": [
-                    {
-                        "day": "Saturday",
-                        "date": "2025-02-18"
-                    },
-                    {
-                        "day": "Monday",
-                        "date": "2025-02-23"
-                    },
-                    {
-                        "day": "Saturday",
-                        "date": "2025-02-25"
-                    },
-                    {
-                        "day": "Monday",
-                        "date": "2025-03-02"
-                    }
-                ]
-            }
-        ],
         "responseDescription": "Returns the list of address Zones That in a Selected City"
     },
     {
