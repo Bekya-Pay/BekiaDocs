@@ -587,7 +587,7 @@
         ],
         "requestExample": {
             "nowDate":"2021-10-12",
-            "zoneID": 2
+            "zoneID": 1
         },
         "responseExample": {
                 "id": 1,
