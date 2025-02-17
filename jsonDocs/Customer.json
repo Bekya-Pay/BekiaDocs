@@ -657,14 +657,26 @@
             {
                 "id": 2,
                 "city": "alex",
-                "zone": "zone1",
-                "address": "456 Elm St, City, Country"
+                "address": "456 Elm St, City, Country",
+                "zone": {
+                    "id": 1,
+                    "city": "ال 21",
+                    "zone": "1",
+                    "largeZone": "العجمي",
+                    "daysString": "Wednesday"
+                }
             },
             {
                 "id": 3,
                 "city": "alex",
-                "zone": "zone2",
-                "address": "451 Elm St, City, Country"
+                "address": "451 Elm St, City, Country",
+                "zone": {
+                    "id": 1,
+                    "city": "ال 21",
+                    "zone": "1",
+                    "largeZone": "العجمي",
+                    "daysString": "Wednesday"
+                }
             }
         ],
         "responseDescription": "Returns a list of addresses associated with the customer"
