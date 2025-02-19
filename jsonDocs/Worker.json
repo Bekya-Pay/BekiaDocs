@@ -304,30 +304,28 @@
         "endpoint": "/worker/address_zones",
         "section": "worker",
         "method": "GET",
-        "description": "Retrieve the list of address Zones That in a Selected City",
+        "description": "Retrieve the list of address Zones",
         "parameters": [
-            {
-                "paramName": "city",
-                "paramType": "String (255)",
-                "paramDescription": "The Selected City to Get The Zone inside it"
-            }
+            
         ],
-        "requestExample": {
-            "city": "Alexandria"
-        },
+        
         "responseExample": [
             {
                 "id": 1,
-                "city": "alex",
-                "zone": "العجمي"
+                "city": "Alexandria",
+                "zone": "ال 21",
+                "largeZone": "العجمي",
+                "daysString": "Wednesday"
             },
             {
                 "id": 2,
-                "city": "alex",
-                "zone": "المنتدرة"
+                "city": "Alexandria",
+                "zone": "الحديد والصلب",
+                "largeZone": "العجمي",
+                "daysString": "Wednesday"
             }
         ],
-        "responseDescription": "Returns the list of address Zones That in a Selected City"
+        "responseDescription": "Returns the list of address Zones"
     },
     {
         "endpoint": "/worker/addresses",
