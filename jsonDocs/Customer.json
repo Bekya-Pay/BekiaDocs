@@ -342,6 +342,19 @@
         "responseDescription": "True if the Customer Can Collect (has a Closed Cycle), False otherwise"
     },
     {
+        "endpoint": "/customer/collecting_ways",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get a List of Collecting Ways",
+        "responseExample": [
+            "كاش",
+            "محفظة الكترونية",
+            "انستا باي"
+        ],
+        "responseDescription": "List of Collecting Ways"
+    },
+
+    {
         "endpoint": "/customer/create_receipt",
         "section": "customer",
         "method": "POST",
