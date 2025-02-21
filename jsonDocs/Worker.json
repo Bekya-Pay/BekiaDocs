@@ -177,18 +177,173 @@
         ],
         "responseExample": [
             {
-                "id": 1,
+                "id": 232527,
                 "name": null,
-                "image": "123",
-                "quntity": "123",
-                "order_date": "2024-09-09T10:12:26.000Z",
-                "pickup_date": null,
+                "image": null,
+                "order_date": "2025-02-17T03:37:39.000Z",
+                "pickup_date": "2025-03-02T22:00:00.000Z",
                 "proccessing_date": null,
-                "status": "ordered"
+                "price": null,
+                "status": "ordered",
+                "customer": {
+                    "id": "h1",
+                    "name": "ahmed mohamed",
+                    "phofile_image": "image2",
+                    "frozen_balance": 0,
+                    "balance": 0,
+                    "visits_count": 0
+                },
+                "has_receipt": false
+            },
+            {
+                "id": 232528,
+                "name": null,
+                "image": null,
+                "order_date": "2025-02-17T03:39:35.000Z",
+                "pickup_date": "2025-03-02T22:00:00.000Z",
+                "proccessing_date": null,
+                "price": null,
+                "status": "ordered",
+                "customer": {
+                    "id": "h2",
+                    "name": "ahmed mohamed",
+                    "phofile_image": "image2",
+                    "frozen_balance": 0,
+                    "balance": 0,
+                    "visits_count": 0
+                },
+                "has_receipt": true
             }
         ],
         "responseDescription": "List of active orders for the worker"
     },
+    {
+        "endpoint": "/worker/order_details",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the details of a specific order",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the order"
+            }
+        ],
+        "requestExample": {
+            "orderID": 1
+        },
+        "responseParameters": [
+            {
+                "paramName": "id",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the order"
+            },
+            {
+                "paramName": "description",
+                "paramType": "String (255)",
+                "paramDescription": "The description of the order"
+            },
+            {
+                "paramName": "image",
+                "paramType": "String (500)",
+                "paramDescription": "The image URL of the order"
+            },
+            {
+                "paramName": "waste_type",
+                "paramType": "String (255)",
+                "paramDescription": "The type of waste in the order"
+            },
+            {
+                "paramName": "weight",
+                "paramType": "Number",
+                "paramDescription": "The weight of the waste in the order"
+            },
+            {
+                "paramName": "count",
+                "paramType": "Number",
+                "paramDescription": "The count of the waste in the order"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "description": "This is Description",
+                "image": "https://",
+                "waste_type": "الكانز",
+                "weight": 20,
+                "count": 2
+            },
+            {
+                "id": 2,
+                "description": "This is Description",
+                "image": "https://",
+                "waste_type": "الحديد",
+                "weight": 20,
+                "count": 2
+            }
+        ],
+        "responseDescription": "Details of the order"
+    },
+    {
+        "endpoint": "/worker/receipts",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the list of receipts for the worker",
+        "parameters": [
+            {
+                "paramName": "customerID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the Customer, Might Be Obtained from the Order"
+            }
+        ],
+        "requestExample": {
+            "customerID": "12345"
+        },
+        "responseParameters": [
+            {
+                "paramName": "receipts",
+                "paramType": "Array",
+                "paramDescription": "List of receipts"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "way": "cash",
+                "amount": 200,
+                "completed": false,
+                "date": "2025-02-21T01:51:17.000Z"
+            },
+            {
+                "id": 2,
+                "way": "instapay",
+                "amount": 200,
+                "completed": false,
+                "date": "2025-02-21T01:51:17.000Z"
+            }
+        ],
+        "responseDescription": "List of receipts for the worker, Most Times Will be Just one"
+    },
+    {
+        "endpoint": "/worker/mark_receipt_completed",
+        "section": "worker",
+        "method": "POST",
+        "description": "Mark the receipt as completed",
+        "parameters": [
+            {
+                "paramName": "receiptID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the receipt"
+            }
+        ],
+        "requestExample": {
+            "receiptID": 1
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the receipt has been marked as completed"
+    },
+
     {
         "endpoint": "/worker/waste_types",
         "section": "worker",
