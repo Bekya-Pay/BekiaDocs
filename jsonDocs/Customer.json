@@ -325,6 +325,54 @@
         "responseDescription": "Total Price and Weight of Previous Orders"
     },
     {
+        "endpoint": "/customer/is_collecing_order",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get if the Next order The Customer Can Collect Money or Not",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            }
+        ],
+        "responseExample": {
+            "collect": true
+        },
+        "responseDescription": "True if the Customer Can Collect (has a Closed Cycle), False otherwise"
+    },
+    {
+        "endpoint": "/customer/create_receipt",
+        "section": "customer",
+        "method": "POST",
+        "description": "Create a Receipt for the Customer to Collect Money",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "CollectingMethod",
+                "paramType": "String (255)",
+                "paramDescription": "The Method of Collecting the Money, Like Cash or Instapay"
+            },
+            {
+                "paramName": "CollectingDate",
+                "paramType": "Date",
+                "paramDescription": "The Date of Collecting the Money, Same as Next Order Date "
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "CollectingMethod": "Cash",
+            "CollectingDate": "2021-10-12"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Receipt has been Created"
+    },
+    {
         "endpoint": "/customer/waste_types",
         "section": "customer",
         "method": "GET",
