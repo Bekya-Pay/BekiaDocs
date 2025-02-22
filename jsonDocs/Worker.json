@@ -609,11 +609,6 @@
                 "paramDescription": "The ID of the Order"
             },
             {
-                "paramName": "price",
-                "paramType": "Number",
-                "paramDescription": "The Estimated Price of the Order"
-            },
-            {
                 "paramName": "nowDate",
                 "paramType": "Date",
                 "paramDescription": "The Date of Today to Set as Processing Date"
@@ -642,7 +637,6 @@
         ],
         "requestExample": {
             "orderID":1231,
-            "price":250,
             "nowDate":"2024-09-09T13:09:42.000Z",
             "details":[
                 {
