@@ -25,7 +25,7 @@
             "name": "ahmed mohamed",
             "profile_image": "image2",
             "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImgxIiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzQwNTM2MTIzLCJleHAiOjE3NDMxMjgxMjN9.1E9DtdwQOl3y5j0AFM5FP1lFl-ncLSbLG2zTjgbEM4E",
-            "role": "customer",
+            "role": "worker",
             "phone": "0123456789"
         },
         "responseDescription": "The User info and the Role"
