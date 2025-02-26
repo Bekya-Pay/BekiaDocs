@@ -65,7 +65,7 @@
         "responseExample": {
             "id": "12345",
             "name": "John Doe",
-            "phofile_image": "https://example.com/profile.jpg",
+            "profile_image": "https://example.com/profile.jpg",
             "frozen_balance": 0,
             "balance": 0,
             "visits_count": 0,
@@ -91,7 +91,7 @@
         "responseExample": {
             "id": "hasdasaafasfas1",
             "name": "ahmed mohamed",
-            "phofile_image": "image2",
+            "profile_image": "image2",
             "phone": "0121",
             "frozen_balance": 100,
             "balance": 1000,

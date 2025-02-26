@@ -22,7 +22,7 @@
         "responseExample": {
             "id": "h1",
             "name": "ahmed mohamed",
-            "phofile_image": "image2",
+            "profile_image": "image2",
             "frozen_balance": 0,
             "balance": 0,
             "visits_count": 0,
