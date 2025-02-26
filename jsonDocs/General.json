@@ -1,5 +1,36 @@
 [
     {
+        "endpoint": "/login",
+        "section": "general",
+        "method": "POST",
+        "description": "Login to The System",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer from Manager"
+            },
+            {
+                "paramName": "password",
+                "paramType": "String (255)",
+                "paramDescription": "The Password of the User"
+            }
+        ],
+        "requestExample": {
+            "userID": "ahmed_mohamed",
+            "password":"hello"
+        },
+        "responseExample": {
+            "id": "ahmed_mohamed",
+            "name": "ahmed mohamed",
+            "profile_image": "image2",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImgxIiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzQwNTM2MTIzLCJleHAiOjE3NDMxMjgxMjN9.1E9DtdwQOl3y5j0AFM5FP1lFl-ncLSbLG2zTjgbEM4E",
+            "role": "customer",
+            "phone": "0123456789"
+        },
+        "responseDescription": "The User info and the Role"
+    },
+    {
         "endpoint": "/role_info",
         "section": "general",
         "method": "GET",
@@ -26,11 +57,9 @@
             "frozen_balance": 0,
             "balance": 0,
             "visits_count": 0,
-            "payment_method": {
-                "id": 1,
-                "package": "Cash"
-            },
-            "phone": "011"
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImgxIiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzQwNTM2MTIzLCJleHAiOjE3NDMxMjgxMjN9.1E9DtdwQOl3y5j0AFM5FP1lFl-ncLSbLG2zTjgbEM4E",
+            "role": "customer",
+            "phone": "0123456789"
         },
         "responseDescription": "The User info and the Role"
     },
