@@ -694,6 +694,27 @@
         "responseParameters": [],
         "responseExample": "Done",
         "responseDescription": "Confirms that the Order has been marked Picked-up and Quntity and Price are Set"
+    },
+    {
+        "endpoint": "/worker/mark_declined",
+        "section": "worker",
+        "method": "POST",
+        "description": "Mark Order as Declined",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the Order"
+            }
+            
+        ],
+        "requestExample": {
+            "orderID":1231
+           
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Order has been marked Picked-up and Quntity and Price are Set"
     }
 
 ]
