@@ -272,24 +272,54 @@
                 "paramDescription": "The count of the waste in the order"
             }
         ],
-        "responseExample": [
-            {
+        "responseExample": {
+            "id": 232527,
+            "name": null,
+            "image": null,
+            "order_date": "2025-02-17T03:37:39.000Z",
+            "pickup_date": "2025-03-02T22:00:00.000Z",
+            "proccessing_date": null,
+            "price": null,
+            "status": "ordered",
+            "address": {
                 "id": 1,
-                "description": "This is Description",
-                "image": "https://",
-                "waste_type": "الكانز",
-                "weight": 20,
-                "count": 2
+                "city": "alex",
+                "address": "456 Elm St, City, Country",
+                "zone": {
+                    "id": 1,
+                    "city": "Alexandria",
+                    "zone": "ال 21",
+                    "largeZone": "العجمي",
+                    "daysString": "Wednesday"
+                }
             },
-            {
-                "id": 2,
-                "description": "This is Description",
-                "image": "https://",
-                "waste_type": "الحديد",
-                "weight": 20,
-                "count": 2
-            }
-        ],
+            "customer": {
+                "id": "h1",
+                "name": "ahmed mohamed",
+                "profile_image": "image2",
+                "frozen_balance": 0,
+                "balance": 0,
+                "visits_count": 0
+            },
+            "details": [
+                {
+                    "id": 1,
+                    "description": "This is Description",
+                    "image": "https://",
+                    "waste_type": "الكانز",
+                    "weight": 20,
+                    "count": 2
+                },
+                {
+                    "id": 2,
+                    "description": "This is Description",
+                    "image": "https://",
+                    "waste_type": "الحديد",
+                    "weight": 20,
+                    "count": 2
+                }
+            ]
+        },
         "responseDescription": "Details of the order"
     },
     {
