@@ -185,15 +185,19 @@
                 "proccessing_date": null,
                 "price": null,
                 "status": "ordered",
-                "customer": {
-                    "id": "h1",
-                    "name": "ahmed mohamed",
-                    "profile_image": "image2",
-                    "frozen_balance": 0,
-                    "balance": 0,
-                    "visits_count": 0
+                "address": {
+                    "id": 1,
+                    "city": "alex",
+                    "address": "456 Elm St, City, Country",
+                    "zone": {
+                        "id": 1,
+                        "city": "Alexandria",
+                        "zone": "ال 21",
+                        "largeZone": "العجمي",
+                        "daysString": "Wednesday"
+                    }
                 },
-                "has_receipt": false
+                "has_receipt": true
             },
             {
                 "id": 232528,
@@ -204,13 +208,17 @@
                 "proccessing_date": null,
                 "price": null,
                 "status": "ordered",
-                "customer": {
-                    "id": "h2",
-                    "name": "ahmed mohamed",
-                    "profile_image": "image2",
-                    "frozen_balance": 0,
-                    "balance": 0,
-                    "visits_count": 0
+                "address": {
+                    "id": 1,
+                    "city": "alex",
+                    "address": "456 Elm St, City, Country",
+                    "zone": {
+                        "id": 1,
+                        "city": "Alexandria",
+                        "zone": "ال 21",
+                        "largeZone": "العجمي",
+                        "daysString": "Wednesday"
+                    }
                 },
                 "has_receipt": true
             }
