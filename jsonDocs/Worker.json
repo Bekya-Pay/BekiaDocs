@@ -672,6 +672,11 @@
                 "paramName": "details.weight",
                 "paramType": "Number",
                 "paramDescription": "The Weight of the Waste Type"
+            },
+            {
+                "paramName": "details.image",
+                "paramType": "String",
+                "paramDescription": "The New Image of the Waste"
             }
             
         ],
@@ -682,12 +687,15 @@
                 {
                     "id":10,
                     "count":10,
-                    "weight":20
+                    "weight":20,
+                    "image":"https://example.com/order.jpg"
                 },
                 {
                     "id":4,
                     "count":10,
-                    "weight":20
+                    "weight":20,
+                    "image":"https://example.com/order.jpg"
+
                 }
             ]
         },
