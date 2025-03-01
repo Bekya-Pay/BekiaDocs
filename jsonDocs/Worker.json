@@ -371,17 +371,17 @@
         "description": "Mark the receipt as completed",
         "parameters": [
             {
-                "paramName": "receiptID",
+                "paramName": "receiptIDs",
                 "paramType": "Number",
-                "paramDescription": "The unique identifier of the receipt"
+                "paramDescription": "a List of unique identifiers of the receipt"
             }
         ],
         "requestExample": {
-            "receiptID": 1
+            "receiptIDs": [1,2]
         },
         "responseParameters": [],
         "responseExample": "Done",
-        "responseDescription": "Confirms that the receipt has been marked as completed"
+        "responseDescription": "Confirms that receipts has been marked as completed"
     },
 
     {
