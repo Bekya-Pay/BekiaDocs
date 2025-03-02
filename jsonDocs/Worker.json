@@ -659,9 +659,9 @@
                 "paramDescription": "Each Waste with it's Details, To Confirm the Detail for Each Waste Type, like for Cans the Count is x and the Weight is y"
             },
             {
-                "paramName": "details.id",
+                "paramName": "details.waste_type",
                 "paramType": "Number",
-                "paramDescription": "The ID of the Waste Type"
+                "paramDescription": "The Name of the Waste Type"
             },
             {
                 "paramName": "details.count",
@@ -676,7 +676,12 @@
             {
                 "paramName": "details.image",
                 "paramType": "String",
-                "paramDescription": "The New Image of the Waste"
+                "paramDescription": "(optional) The New Image of the Waste"
+            },
+            {
+                "paramName": "details.description",
+                "paramType": "String",
+                "paramDescription": "(optional) The Description of the Waste"
             }
             
         ],
@@ -685,16 +690,16 @@
             "nowDate":"2024-09-09T13:09:42.000Z",
             "details":[
                 {
-                    "id":10,
+                    "waste_type":"الكانز",
                     "count":10,
                     "weight":20,
                     "image":"https://example.com/order.jpg"
                 },
                 {
-                    "id":4,
+                    "waste_type":"الورق والكتب",
                     "count":10,
                     "weight":20,
-                    "image":"https://example.com/order.jpg"
+                    "description":"this is a Test Description"
 
                 }
             ]
