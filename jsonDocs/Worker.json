@@ -135,7 +135,7 @@
             "deleted",
             "ordered",
             "pickedup",
-            "proccessed"
+            "processed"
         ],
         "responseDescription": "List of order Statuses"
     },
@@ -319,6 +319,16 @@
                     "waste_type": "الحديد",
                     "weight": 20,
                     "count": 2
+                }
+            ],
+            "receipts": [
+                {
+                    "id": 1,
+                    "way": "قسيمة شراء",
+                    "handle": null,
+                    "amount": 200,
+                    "completed": false,
+                    "date": "2025-02-21T01:51:17.000Z"
                 }
             ]
         },
@@ -682,6 +692,11 @@
                 "paramName": "details.description",
                 "paramType": "String",
                 "paramDescription": "(optional) The Description of the Waste"
+            },
+            {
+                "paramName": "receipts_done",
+                "paramType": "Array",
+                "paramDescription": "(optional) List of Receipts that are Done and the Worker has Collected"
             }
             
         ],
@@ -702,7 +717,8 @@
                     "description":"this is a Test Description"
 
                 }
-            ]
+            ],
+            "receipts_done":[1,2]
         },
         "responseParameters": [],
         "responseExample": "Done",

@@ -210,7 +210,7 @@
             "deleted",
             "ordered",
             "pickedup",
-            "proccessed"
+            "processed"
         ],
         "responseDescription": "List of order Statuses"
     },
@@ -347,7 +347,7 @@
         "method": "GET",
         "description": "Get a List of Collecting Ways",
         "responseExample": [
-            "كاش",
+            "قسيمة شراء",
             "محفظة الكترونية",
             "انستا باي"
         ],
@@ -385,6 +385,77 @@
         "responseExample": "Done",
         "responseDescription": "Confirms that the Receipt has been Created"
     },
+    {
+        "endpoint": "/customer/pending_receipts",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get a List of Pending Receipts for the Customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "way": null,
+                "handle": null,
+                "amount": 200,
+                "completed": false,
+                "date": "2025-02-21T01:51:17.000Z"
+            },
+            {
+                "id": 2,
+                "way": null,
+                "handle": null,
+                "amount": 100,
+                "completed": false,
+                "date": "2025-02-20T01:51:17.000Z"
+            }
+        ],
+        "responseDescription": "List of Pending Receipts for the Customer"
+    },
+    {
+        "endpoint": "/customer/set_receipt_way",
+        "section": "customer",
+        "method": "POST",
+        "description": "Set the Way of Collecting the Money for the Receipt",
+        "parameters": [
+            {
+                "paramName": "receiptID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the Receipt"
+            },
+            {
+                "paramName": "way",
+                "paramType": "String (255)",
+                "paramDescription": "The Method of Collecting the Money, Like Cash or Instapay"
+            },
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "handle",
+                "paramType": "String (255)",
+                "paramDescription": "(only For Vouchers)The Handle of the User to Collect the Money"
+            }
+
+        ],
+        "requestExample": {
+            "receiptID": 1,
+            "way": "محفظة الكترونية",
+            "userID": "12345",
+            "handle":"test@intapay.com"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Way has been Set"
+    },
+
     {
         "endpoint": "/customer/waste_types",
         "section": "customer",

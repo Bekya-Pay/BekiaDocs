@@ -135,7 +135,7 @@
             "deleted",
             "ordered",
             "pickedup",
-            "proccessed"
+            "processed"
         ],
         "responseDescription": "List of order Statuses"
     },
@@ -357,7 +357,7 @@
         "responseDescription": "Confirms that the Order has been marked Declined"
     },
     {
-        "endpoint": "/manager/mark_proccessed",
+        "endpoint": "/manager/mark_processed",
         "section": "manager",
         "method": "POST",
         "description": "Mark Order as Proccessed When the Manager Pick it Up from The Worker, and Set The Quntity",

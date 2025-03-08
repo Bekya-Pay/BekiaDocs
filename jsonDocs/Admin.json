@@ -103,7 +103,7 @@
             "deleted",
             "ordered",
             "pickedup",
-            "proccessed"
+            "processed"
         ],
         "responseDescription": "List of order Statuses"
     },
@@ -173,7 +173,7 @@
             "deleted": 1,
             "ordered": 1,
             "pickedup": 1,
-            "proccessed": 0
+            "processed": 0
         },
         "responseDescription": "Get a List of Numbers Representing The System's Orders"
     },
