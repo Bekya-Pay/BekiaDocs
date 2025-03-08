@@ -455,7 +455,37 @@
         "responseExample": "Done",
         "responseDescription": "Confirms that the Way has been Set"
     },
-
+    {
+        "endpoint": "/customer/completed_receipts",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get a List of Completed Receipts for the Customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "way": "محفظة الكترونية",
+                "handle": "test@intapay.com",
+                "amount": 200,
+                "completed": true,
+                "date": "2025-02-21T01:51:17.000Z"
+            },
+            {
+                "id": 2,
+                "way": "محفظة الكترونية",
+                "handle": "test@intapay.com",
+                "amount": 100,
+                "completed": true,
+                "date": "2025-02-20T01:51:17.000Z"
+            }
+        ]
+    },
     {
         "endpoint": "/customer/waste_types",
         "section": "customer",
