@@ -226,6 +226,50 @@
         "responseDescription": "List of active orders for the worker"
     },
     {
+        "endpoint": "/worker/assigned_receipts",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the list of active receipts Assigned to the Worker",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the worker"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345"
+        },
+        "responseParameters": [
+            {
+                "paramName": "count",
+                "paramType": "Number",
+                "paramDescription": "The Count of All Receipts"
+            },
+            {
+                "paramName": "receipts",
+                "paramType": "Array",
+                "paramDescription": "List of active receipts"
+            }
+        ],
+        "responseExample": {
+            "count": 1,
+            "receipts": {
+                "h1": [
+                    {
+                        "id": 1,
+                        "way": "قسيمة شراء",
+                        "handle": null,
+                        "amount": 200,
+                        "completed": false,
+                        "date": "2025-02-21T01:51:17.000Z"
+                    }
+                ]
+            }
+        },
+        "responseDescription": "List of active receipts for the worker With there Customer"
+    },
+    {
         "endpoint": "/worker/order_details",
         "section": "worker",
         "method": "GET",
