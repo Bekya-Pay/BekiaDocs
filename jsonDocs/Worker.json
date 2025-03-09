@@ -240,34 +240,17 @@
         "requestExample": {
             "userID": "12345"
         },
-        "responseParameters": [
-            {
-                "paramName": "count",
-                "paramType": "Number",
-                "paramDescription": "The Count of All Receipts"
-            },
-            {
-                "paramName": "receipts",
-                "paramType": "Array",
-                "paramDescription": "List of active receipts"
-            }
+        "responseExample": [
+                {
+                    "id": 1,
+                    "way": "قسيمة شراء",
+                    "handle": null,
+                    "amount": 200,
+                    "completed": false,
+                    "date": "2025-02-21T01:51:17.000Z"
+                }
         ],
-        "responseExample": {
-            "count": 1,
-            "receipts": {
-                "h1": [
-                    {
-                        "id": 1,
-                        "way": "قسيمة شراء",
-                        "handle": null,
-                        "amount": 200,
-                        "completed": false,
-                        "date": "2025-02-21T01:51:17.000Z"
-                    }
-                ]
-            }
-        },
-        "responseDescription": "List of active receipts for the worker With there Customer"
+        "responseDescription": "List of active receipts for the worker"
     },
     {
         "endpoint": "/worker/order_details",
