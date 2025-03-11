@@ -465,6 +465,18 @@
                 "paramName": "userID",
                 "paramType": "String (255)",
                 "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "page",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
             }
         ],
         "responseExample": [
