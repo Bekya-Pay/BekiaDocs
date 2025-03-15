@@ -247,7 +247,8 @@
                     "handle": null,
                     "amount": 200,
                     "completed": false,
-                    "date": "2025-02-21T01:51:17.000Z"
+                    "issu_date": "2025-02-21T01:51:17.000Z",
+                    "complete_date": "2025-02-28T01:51:17.000Z"
                 }
         ],
         "responseDescription": "List of active receipts for the worker"
@@ -355,7 +356,8 @@
                     "handle": null,
                     "amount": 200,
                     "completed": false,
-                    "date": "2025-02-21T01:51:17.000Z"
+                    "issu_date": "2025-02-21T01:51:17.000Z",
+                    "complete_date":"2025-02-28T01:51:17.000Z"
                 }
             ]
         },
@@ -389,14 +391,16 @@
                 "way": "cash",
                 "amount": 200,
                 "completed": false,
-                "date": "2025-02-21T01:51:17.000Z"
+                "issu_date": "2025-02-21T01:51:17.000Z",
+                "complete_date": "2025-02-21T01:51:17.000Z"
             },
             {
                 "id": 2,
                 "way": "instapay",
                 "amount": 200,
                 "completed": false,
-                "date": "2025-02-21T01:51:17.000Z"
+                "issu_date": "2025-02-21T01:51:17.000Z",
+                "complete_date": "2025-02-21T01:51:17.000Z"
             }
         ],
         "responseDescription": "List of receipts for the worker, Most Times Will be Just one"
