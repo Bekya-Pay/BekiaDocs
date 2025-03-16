@@ -247,7 +247,7 @@
                     "handle": null,
                     "amount": 200,
                     "completed": false,
-                    "issu_date": "2025-02-21T01:51:17.000Z",
+                    "issue_date": "2025-02-21T01:51:17.000Z",
                     "complete_date": "2025-02-28T01:51:17.000Z"
                 }
         ],
@@ -356,7 +356,7 @@
                     "handle": null,
                     "amount": 200,
                     "completed": false,
-                    "issu_date": "2025-02-21T01:51:17.000Z",
+                    "issue_date": "2025-02-21T01:51:17.000Z",
                     "complete_date":"2025-02-28T01:51:17.000Z"
                 }
             ]
@@ -391,7 +391,7 @@
                 "way": "cash",
                 "amount": 200,
                 "completed": false,
-                "issu_date": "2025-02-21T01:51:17.000Z",
+                "issue_date": "2025-02-21T01:51:17.000Z",
                 "complete_date": "2025-02-21T01:51:17.000Z"
             },
             {
@@ -399,7 +399,7 @@
                 "way": "instapay",
                 "amount": 200,
                 "completed": false,
-                "issu_date": "2025-02-21T01:51:17.000Z",
+                "issue_date": "2025-02-21T01:51:17.000Z",
                 "complete_date": "2025-02-21T01:51:17.000Z"
             }
         ],
