@@ -353,7 +353,59 @@
         ],
         "responseDescription": "List of Collecting Ways"
     },
-
+    {
+        "endpoint": "/customer/waste_prices",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get a List of Waste Prices",
+        "responseExample": [
+            {
+                "item": "الكانز",
+                "cash": "6",
+                "wallet": [
+                    {
+                        "الكمية": "3-4",
+                        "السعر": "10"
+                    },
+                    {
+                        "الكمية": "4-7",
+                        "السعر": "12"
+                    },
+                    {
+                        "الكمية": "7-10",
+                        "السعر": "13"
+                    },
+                    {
+                        "الكمية": "10+",
+                        "السعر": "0"
+                    }
+                ],
+                "bank": [
+                    {
+                        "الكمية": "جميع الكميات",
+                        "السعر": "0"
+                    }
+                ]
+            },
+            {
+                "item": "زجاجة المياة والزيت",
+                "cash": "0",
+                "wallet": [
+                    {
+                        "الكمية": "جميع الكميات",
+                        "السعر": "0"
+                    }
+                ],
+                "bank": [
+                    {
+                        "الكمية": "جميع الكميات",
+                        "السعر": "0"
+                    }
+                ]
+            }
+        ],
+        "responseDescription": "List of Waste Prices"
+    },
     {
         "endpoint": "/customer/create_receipt",
         "section": "customer",
