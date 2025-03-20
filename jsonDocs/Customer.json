@@ -353,6 +353,8 @@
         ],
         "responseDescription": "List of Collecting Ways"
     },
+
+    
     {
         "endpoint": "/customer/waste_prices",
         "section": "customer",
