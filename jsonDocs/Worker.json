@@ -328,6 +328,13 @@
                 "frozen_balance": 0,
                 "balance": 0,
                 "visits_count": 0,
+                "payment_method": {
+                    "id": 2,
+                    "package": "Bank",
+                    "pro_name": "تحويش بلس",
+                    "cycle": 8,
+                    "raise": 10
+                },
                 "phone": "0123456789"
 
             },
