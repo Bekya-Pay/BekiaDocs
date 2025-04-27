@@ -174,14 +174,12 @@
                 {
                     "category":"cans",
                     "weight":3,
-                    "count":40,
                     "image":"https://imagelink",
                     "description":"any description Here"
                 },
                 {
                     "category":"solid",
                     "weight":3,
-                    "count":40,
                     "image":"https://imagelink",
                     "description":"any description Here"
                 }
@@ -299,8 +297,7 @@
                     "description": null,
                     "image": "http://",
                     "waste_type": "solid",
-                    "weight": 10,
-                    "count": null
+                    "weight": 10
                 }
             ]
         },

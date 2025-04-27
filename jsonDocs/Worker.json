@@ -293,11 +293,6 @@
                 "paramName": "weight",
                 "paramType": "Number",
                 "paramDescription": "The weight of the waste in the order"
-            },
-            {
-                "paramName": "count",
-                "paramType": "Number",
-                "paramDescription": "The count of the waste in the order"
             }
         ],
         "responseExample": {
@@ -344,16 +339,14 @@
                     "description": "This is Description",
                     "image": "https://",
                     "waste_type": "الكانز",
-                    "weight": 20,
-                    "count": 2
+                    "weight": 20
                 },
                 {
                     "id": 2,
                     "description": "This is Description",
                     "image": "https://",
                     "waste_type": "الحديد",
-                    "weight": 20,
-                    "count": 2
+                    "weight": 20
                 }
             ],
             "receipts": [
@@ -744,13 +737,11 @@
             "details":[
                 {
                     "waste_type":"الكانز",
-                    "count":10,
                     "weight":20,
                     "image":"https://example.com/order.jpg"
                 },
                 {
                     "waste_type":"الورق والكتب",
-                    "count":10,
                     "weight":20,
                     "description":"this is a Test Description"
 
