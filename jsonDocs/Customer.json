@@ -164,7 +164,13 @@
                 "paramType": "Array",
                 "paramDescription": "List of waste items in the order with their details",
                 "optional": true
+            },
+            {
+                "paramName": "device_token",
+                "paramType": "String (255)",
+                "paramDescription": "(optional) The device token for push notifications",
             }
+            
         ],
         "requestExample": {
             "userID":"asdfasfas",
