@@ -168,7 +168,7 @@
             {
                 "paramName": "device_token",
                 "paramType": "String (255)",
-                "paramDescription": "(optional) The device token for push notifications",
+                "paramDescription": "(optional) The device token for push notifications"
             }
             
         ],
