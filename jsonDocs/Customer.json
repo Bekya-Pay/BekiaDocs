@@ -949,6 +949,37 @@
         "responseDescription": "Confirms that the address has been added"
     },
     {
+        "endpoint": "/customer/edit_order_pickup_date",
+        "section": "customer",
+        "method": "POST",
+        "description": "Edit the pickup date of an order",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the order to be edited"
+            },
+            {
+                "paramName": "pickup_date",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The new pickup date for the order"
+            }
+        ],
+        "requestExample": {
+            "userID":"12345",
+            "orderID": 1,
+            "pickup_date":"2021-10-12"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the pickup date has been updated"
+    },
+    {
         "endpoint": "/customer/address",
         "section": "customer",
         "method": "DELETE",
