@@ -949,6 +949,31 @@
         "responseDescription": "Confirms that the address has been added"
     },
     {
+        "endpoint": "/customer/confirm_order",
+        "section": "customer",
+        "method": "POST",
+        "description": "Confirm the order for the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the order to be confirmed"
+            }
+        ],
+        "requestExample": {
+            "userID":"12345",
+            "orderID": 1
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the order has been confirmed"
+    },
+    {
         "endpoint": "/customer/edit_order_pickup_date",
         "section": "customer",
         "method": "POST",
