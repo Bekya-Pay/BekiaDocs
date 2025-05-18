@@ -151,6 +151,11 @@
                 "paramDescription": "The unique identifier of the worker"
             },
             {
+                "paramName": "day",
+                "paramType": "Date",
+                "paramDescription": "(Optional) The Day We Need to Get the Active Orders For, If Not Setted It Will be Today"
+            },
+            {
                 "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
@@ -224,6 +229,44 @@
             }
         ],
         "responseDescription": "List of active orders for the worker"
+    },
+    {
+        "endpoint": "/worker/history",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the list of past orders that Was Assigned to the Worker and is Done",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the worker"
+            },
+            {
+                "paramName": "page",
+                "paramType": "number",
+                "paramDescription": "(Optional) pagination block",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "number",
+                "paramDescription": "(Optional) limit of results per block",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "page": 1,
+            "limit": 10
+        },
+        "responseParameters": [
+            {
+                "paramName": "orders",
+                "paramType": "Array",
+                "paramDescription": "List of past orders"
+            }
+        ]
+        
     },
     {
         "endpoint": "/worker/assigned_receipts",
