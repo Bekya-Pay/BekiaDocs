@@ -124,5 +124,53 @@
             "exist": true
         },
         "responseDescription": "Return True if the Phone Number is Already Registered"
+    },
+    {
+        "endpoint": "/send_otp",
+        "section": "general",
+        "method": "POST",
+        "description": "Send OTP to the User Phone Number",
+        "parameters": [
+            {
+                "paramName": "phone",
+                "paramType": "String (255)",
+                "paramDescription": "The Phone Number to Send OTP to"
+            }
+        ],
+        "requestExample": {
+            "phone": "0123456789"
+        },
+        "responseExample": {
+            "data": "OTP sent successfully"
+        },
+        "responseDescription": "Return a message indicating that the OTP was sent successfully"
+    },
+    {
+        "endpoint": "/verify_otp",
+        "section": "general",
+        "method": "POST",
+        "description": "Verify the OTP Code Sent to the User Phone Number",
+        "parameters": [
+            {
+                "paramName": "phone",
+                "paramType": "String (255)",
+                "paramDescription": "The Phone Number to Verify OTP for"
+            },
+            {
+                "paramName": "otp_code",
+                "paramType": "String (6)",
+                "paramDescription": "The OTP Code to Verify"
+            }
+        ],
+        "requestExample": {
+            "phone": "0123456789",
+            "otp": "123456"
+        },
+        "responseExample": {
+            "data": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImgxIiwicm9sZSI6ImN1c3RvbWVyIiwiaWF0IjoxNzQwNTM2MTIzLCJleHAiOjE3NDMxMjgxMjN9.1E9DtdwQOl3y5j0AFM5FP1lFl-ncLSbLG2zTjgbEM4E"
+            }
+        },
+        "responseDescription": "Return a token if the OTP is verified successfully"
     }
 ]
