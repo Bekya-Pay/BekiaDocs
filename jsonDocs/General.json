@@ -42,9 +42,9 @@
                 "paramDescription": "The unique identifier of the customer from Firebase Login"
             },
             {
-                "paramName": "FirebaseToken",
+                "paramName": "OTPToken",
                 "paramType": "String (255)",
-                "paramDescription": "The Auth Token of the User From Firebase"
+                "paramDescription": "The Auth Token of the User From OTP"
             }
         ],
         "requestExample": {
