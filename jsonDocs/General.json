@@ -33,13 +33,13 @@
     {
         "endpoint": "/role_info",
         "section": "general",
-        "method": "GET",
+        "method": "POST",
         "description": "Get The DB info Of the user With Tokens For Auth",
         "parameters": [
             {
-                "paramName": "userID",
+                "paramName": "userID or phone",
                 "paramType": "String (255)",
-                "paramDescription": "The unique identifier of the customer from Firebase Login"
+                "paramDescription": "The unique identifier of the customer or Phone"
             },
             {
                 "paramName": "OTPToken",
