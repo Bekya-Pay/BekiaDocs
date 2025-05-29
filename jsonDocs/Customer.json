@@ -256,14 +256,36 @@
         ],
         "responseExample": [
             {
+                "id": 232523,
+                "order_date": "2024-09-09T16:09:42.000Z",
+                "pickup_date": "2025-02-12T20:20:32.000Z",
+                "proccessing_date": null,
+                "price": 50,
+                "status": "ordered",
+                "confirmed": false,
+                "address": {
+                    "id": 1,
+                    "city": "alex",
+                    "address": "456 Elm St, City, Country",
+                    "zoneName": "ال 21"
+                },
+                "drop_off": null
+            },
+            {
                 "id": 1,
-                "name": null,
-                "image": "123",
-                "quntity": "123",
-                "order_date": "2024-09-09T10:12:26.000Z",
+                "order_date": "2024-09-09T13:12:26.000Z",
                 "pickup_date": null,
                 "proccessing_date": null,
-                "status": "ordered"
+                "price": 100,
+                "status": "ordered",
+                "confirmed": false,
+                "address": null,
+                "drop_off": {
+                    "id": 1,
+                    "location": "Stanly",
+                    "locationLink": "https://maps.app.goo.gl/eWS33quaYSoADJxu6?g_st=aw",
+                    "workingHours": "09:00AM - 03:00PM"
+                }
             }
         ],
         "responseDescription": "List of active orders for the customer"
@@ -297,6 +319,12 @@
             "price": 0,
             "total_weight":10,
             "status": "ordered",
+            "assigned_worker": {
+                "id": "asdasdwqeqweqw",
+                "name": "Mohamed",
+                "profile_image": "https://bekya.omarelnemr.xyz/profilepic/default.png",
+                "phone": "011233"
+            },
             "details": [
                 {
                     "id": 1,
@@ -638,24 +666,36 @@
         ],
         "responseExample": [
             {
-                "id": 2,
-                "name": "order 1",
-                "image": "https://example.com/order.jpg",
-                "quntity": null,
-                "order_date": "2024-09-09T13:07:57.000Z",
-                "pickup_date": null,
+                "id": 232530,
+                "order_date": "2025-02-17T17:50:02.000Z",
+                "pickup_date": "2025-03-02T00:00:00.000Z",
                 "proccessing_date": null,
-                "status": "deleted"
+                "price": null,
+                "status": "pickedup",
+                "confirmed": false,
+                "address": {
+                    "id": 1,
+                    "city": "alex",
+                    "address": "456 Elm St, City, Country",
+                    "zoneName": "ال 21"
+                },
+                "drop_off": null
             },
             {
-                "id": 3,
-                "name": "order1",
-                "image": "https://example.com/order.jpg",
-                "quntity": null,
-                "order_date": "2024-09-09T13:09:42.000Z",
-                "pickup_date": null,
+                "id": 232529,
+                "order_date": "2025-02-17T11:37:05.000Z",
+                "pickup_date": "2025-02-24T00:00:00.000Z",
                 "proccessing_date": null,
-                "status": "pickedup"
+                "price": null,
+                "status": "processed",
+                "confirmed": false,
+                "address": null,
+                "drop_off": {
+                    "id": 1,
+                    "location": "Stanly",
+                    "locationLink": "https://maps.app.goo.gl/eWS33quaYSoADJxu6?g_st=aw",
+                    "workingHours": "09:00AM - 03:00PM"
+                }
             }
         ],
         "responseDescription": "List of historical orders for the customer"
@@ -953,6 +993,38 @@
         "responseParameters": [],
         "responseExample": "Done",
         "responseDescription": "Confirms that the address has been added"
+    },
+    {
+        "endpoint": "/customer/drop_offs",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of drop-off locations for the customer",
+        "responseParameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the User"
+            }
+        ],
+        "responseExample": [
+            {
+                "id": 1,
+                "location": "Stanly",
+                "locationLink": "https://maps.app.goo.gl/eWS33quaYSoADJxu6?g_st=aw",
+                "workingHours": "09:00AM - 03:00PM",
+                "zoneName": "ال 21",
+                "daysString": "Wednesday"
+            },
+            {
+                "id": 2,
+                "location": "Stanly 2",
+                "locationLink": "https://maps.app.goo.gl/eWS33quaYSoADJxu6?g_st=aw",
+                "workingHours": "12:00PM - 02:00PM",
+                "zoneName": "الحديد والصلب",
+                "daysString": "Wednesday"
+            }
+        ],
+        "responseDescription": "Returns a list of drop-off locations for the customer"
     },
     {
         "endpoint": "/customer/confirm_order",
