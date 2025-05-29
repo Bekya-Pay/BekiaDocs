@@ -146,7 +146,12 @@
             {
                 "paramName": "addressID",
                 "paramType": "number",
-                "paramDescription": "The ID of Selected Address"
+                "paramDescription": "(null if dropoffID Provided) The ID of Selected Address"
+            },
+            {
+                "paramName": "dropoffID",
+                "paramType": "number",
+                "paramDescription": "(null if addressID Provided) The ID of Selected Address"
             },
             {
                 "paramName": "pickup_date",
