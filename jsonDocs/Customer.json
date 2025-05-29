@@ -856,9 +856,52 @@
                 "paramDescription": "The ID of the Zone"
             },
             {
-                "paramName": "nowDate",
-                "paramType": "Date",
-                "paramDescription": "The Date of Today to Be Used to Get the Dates of the Next Available Weeks"
+                "paramName": "weeks",
+                "paramType": "Number",
+                "paramDescription": "(optional) The Number of Weeks We Need to Get the Dates of, Defualt is 2"
+            }
+        ],
+        "requestExample": {
+            "nowDate":"2021-10-12",
+            "zoneID": 1
+        },
+        "responseExample": {
+                "id": 1,
+                "city": "Alexandria",
+                "zone": "ميامي",
+                "largeZone": "بحري",
+                "daysString": "Tuesday | Sunday",
+                "nextDates": [
+                    {
+                        "day": "Tuesday",
+                        "date": "2025-02-18"
+                    },
+                    {
+                        "day": "Sunday",
+                        "date": "2025-02-23"
+                    },
+                    {
+                        "day": "Tuesday",
+                        "date": "2025-02-25"
+                    },
+                    {
+                        "day": "Sunday",
+                        "date": "2025-03-02"
+                    }
+                ]
+            },
+        "responseDescription": "Returns the list of address Zones That in a Selected City"
+    },
+    {
+        "endpoint": "/customer/zone_dates",
+        "section": "customer",
+        "method": "GET",
+        "description": "Retrieve the list of Dates For a Zone",
+        "parameters": [
+            {
+                "paramName": "zoneID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the Zone"
             },
             {
                 "paramName": "weeks",
@@ -1017,6 +1060,7 @@
                 "location": "Stanly",
                 "locationLink": "https://maps.app.goo.gl/eWS33quaYSoADJxu6?g_st=aw",
                 "workingHours": "09:00AM - 03:00PM",
+                "zoneID":1,
                 "zoneName": "ال 21",
                 "daysString": "Wednesday"
             },
@@ -1025,6 +1069,7 @@
                 "location": "Stanly 2",
                 "locationLink": "https://maps.app.goo.gl/eWS33quaYSoADJxu6?g_st=aw",
                 "workingHours": "12:00PM - 02:00PM",
+                "zoneID":3,
                 "zoneName": "الحديد والصلب",
                 "daysString": "Wednesday"
             }
