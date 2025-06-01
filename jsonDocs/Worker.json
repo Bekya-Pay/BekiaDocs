@@ -153,7 +153,7 @@
             {
                 "paramName": "day",
                 "paramType": "Date",
-                "paramDescription": "(Optional) The Day We Need to Get the Active Orders For, If Not Setted It Will be Today"
+                "paramDescription": "(Optional) The Day We Need to Get the Active Orders For, Must Be on of the Value 'today' 'tomorrow' 'yesterday' 'dayaftertoday', if Other Value is Provided, it will return Today's orders"
             },
             {
                 "paramName": "page",
