@@ -766,6 +766,11 @@
                 "paramDescription": "The Weight of the Waste Type"
             },
             {
+                "paramName": "details.price",
+                "paramType": "Number",
+                "paramDescription": "(only For Furnture) The price of the Waste Type"
+            },
+            {
                 "paramName": "details.image",
                 "paramType": "String",
                 "paramDescription": "(optional) The New Image of the Waste"
