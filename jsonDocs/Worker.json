@@ -156,6 +156,11 @@
                 "paramDescription": "(Optional) The Day We Need to Get the Active Orders For, Must Be on of the Value 'today' 'tomorrow' 'yesterday' 'dayaftertoday', if Other Value is Provided, it will return Today's orders"
             },
             {
+                "paramName": "zone",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Zone ID to Filter Orders With Zone"
+            },
+            {
                 "paramName": "page",
                 "paramType": "number",
                 "paramDescription": "(Optional) pagination block",
@@ -202,7 +207,8 @@
                         "daysString": "Wednesday"
                     }
                 },
-                "has_receipt": true
+                "has_receipt": true,
+                "furnture": false
             },
             {
                 "id": 232528,
@@ -225,7 +231,9 @@
                         "daysString": "Wednesday"
                     }
                 },
-                "has_receipt": true
+                "has_receipt": true,
+                "furnture": true
+
             }
         ],
         "responseDescription": "List of active orders for the worker"
