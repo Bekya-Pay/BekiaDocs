@@ -463,17 +463,23 @@
         "description": "Mark the receipt as completed",
         "parameters": [
             {
-                "paramName": "receiptIDs",
+                "paramName": "receiptID",
                 "paramType": "Number",
-                "paramDescription": "a List of unique identifiers of the receipt"
+                "paramDescription": "unique identifier of the receipt"
+            },
+            {
+                "paramName": "way",
+                "paramType": "String (255)",
+                "paramDescription": "How The Receipt is Done like, كاش or قسيمة شراء"
             }
         ],
         "requestExample": {
-            "receiptIDs": [1,2]
+            "receiptID": 1,
+            "way":"محفظة الكترونية"
         },
         "responseParameters": [],
         "responseExample": "Done",
-        "responseDescription": "Confirms that receipts has been marked as completed"
+        "responseDescription": "Confirms that receipt has been marked as completed"
     },
 
     {
