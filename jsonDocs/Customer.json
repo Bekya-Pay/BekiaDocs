@@ -1158,6 +1158,36 @@
         "responseDescription": "Confirms that the address has been removed"
     },
     {
+        "endpoint": "/customer/cancel_order",
+        "section": "customer",
+        "method": "DELETE",
+        "description": "Remove an order associated with the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the order to be removed"
+            },
+            {
+                "paramName":"cancel_reason",
+                "paramType": "String (255)",
+                "paramDescription": "( optional ) The Reason Why the Order is Declined, like 'Customer Not Available' or 'Wrong Address'"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "addressID": 1
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the address has been removed"
+    },
+    {
         "endpoint": "/customer/delete_account",
         "section": "customer",
         "method": "DELETE",
