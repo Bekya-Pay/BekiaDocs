@@ -1204,6 +1204,78 @@
         },
         "responseExample": "Done",
         "responseDescription": "Confirms that the account has been deleted"
+    },
+     {
+        "endpoint": "/customer/unrated_order",
+        "section": "customer",
+        "method": "GET",
+        "description": "Get if there is Orders Need to Be Rated, Return only the Most Recent Order",
+        "responseParameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the Customer"
+            }
+        ],
+        "responseExample": {
+            "id": 211,
+            "order_date": "2025-05-10T18:20:09.000Z",
+            "pickup_date": "2025-05-24T00:00:00.000Z",
+            "proccessing_date": "2025-05-24T14:27:00.000Z",
+            "price": 212,
+            "status": "pickedup",
+            "confirmed": false,
+            "furnture": false,
+            "cancel_reason": null,
+            "rated": true,
+            "assigned_worker": {
+                "id": "ahmed_samir",
+                "name": "أحمد سمير",
+                "profile_image": "https://api.bekyapay.com/file/1750606594770.jpg",
+                "city": "الإسكندرية",
+                "worker_type": "general",
+                "rating": "3.20",
+                "rates": 1
+            }
+        
+        },
+        "responseDescription": "Returns the Most Recent Order That Need to Be Rated"
+    },
+    {
+        "endpoint": "/customer/rate_worker",
+        "section": "customer",
+        "method": "POST",
+        "description": "Rate the Worker of the Most Recent Order",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "workerID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the worker"
+            },
+            {
+                "paramName": "orderID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the Order"
+            },
+            {
+                "paramName": "rating",
+                "paramType": "Number",
+                "paramDescription": "The rating given to the worker"
+            }
+        ],
+        "requestExample": {
+            "userID": "12345",
+            "workerID": "ahmed_samir",
+            "orderID": 33,
+            "rating": 4
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the worker has been rated"
     }
-
 ]

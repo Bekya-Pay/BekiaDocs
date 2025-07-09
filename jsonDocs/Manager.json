@@ -347,10 +347,16 @@
                 "paramName": "orderID",
                 "paramType": "Number",
                 "paramDescription": "The ID of the Order"
+            },
+            {
+                "paramName":"cancel_reason",
+                "paramType": "String (255)",
+                "paramDescription": "( optional ) The Reason Why the Order is Declined, like 'Customer Not Available' or 'Wrong Address'"
             }
         ],
         "requestExample": {
-            "orderID":1231
+            "orderID":1231,
+            "cancel_reason":"Customer Not Available"
         },
         "responseParameters": [],
         "responseExample": "Done",
