@@ -26,6 +26,16 @@
                 "paramDescription": "The City of the Address of the customer"
             },
             {
+                "paramName":"lat",
+                "paramType":"String (255)",
+                "paramDescription": "(optional) The Latitude of the Address of the customer, Used to Show on Map"
+            },
+            {
+                "paramName":"lng",
+                "paramType":"String (255)",
+                "paramDescription": "(optional) The Longitude of the Address of the customer, Used to Show on Map"
+            },
+            {
                 "paramName": "zoneID",
                 "paramType": "Number",
                 "paramDescription": "The Selected Zone of the customer"
