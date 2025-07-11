@@ -1210,7 +1210,7 @@
         "section": "customer",
         "method": "GET",
         "description": "Get if there is Orders Need to Be Rated, Return only the Most Recent Order",
-        "responseParameters": [
+        "parameters": [
             {
                 "paramName": "userID",
                 "paramType": "String (255)",
