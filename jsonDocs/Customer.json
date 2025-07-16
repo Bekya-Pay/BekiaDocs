@@ -377,6 +377,16 @@
         "endpoint": "/customer/waste_prices",
         "section": "customer",
         "method": "GET",
+        "parameters": [
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "The city To get its Enabeled Wastes"
+            }
+        ],
+        "requestExample":{
+            "city": "الإسكندرية"
+        },
         "description": "Get a List of Waste Prices",
         "responseExample": [
             {
@@ -579,13 +589,79 @@
         "endpoint": "/customer/waste_types",
         "section": "customer",
         "method": "GET",
+        "parameters": [
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "The city To get its Enabeled Wastes"
+            }
+        ],
+        "requestExample":{
+            "city": "الإسكندرية"
+        },
         "description": "Retrieve the list of All Order Waste Types Avaliable in the System",
         "responseExample": [
-            "electronics",
-            "solid",
-            "liquid",
-            "glass"
-        ],
+                {
+                    "name": "الالومنيوم",
+                    "icon": "https://api.bekyapay.com/file/aluminium.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "الحديد",
+                    "icon": "https://api.bekyapay.com/file/steel.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "الصفيح",
+                    "icon": "https://api.bekyapay.com/file/tuna.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "الكانز",
+                    "icon": "https://api.bekyapay.com/file/can.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "الكرتون",
+                    "icon": "https://api.bekyapay.com/file/carton.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "النحاس",
+                    "icon": "https://api.bekyapay.com/file/copper.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "الورق والكتب",
+                    "icon": "https://api.bekyapay.com/file/books.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "زجاجات البلاستيك",
+                    "icon": "https://api.bekyapay.com/file/waterBottle.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "علب الشامبو والمسحوق",
+                    "icon": "https://api.bekyapay.com/file/shampoo.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                },
+                {
+                    "name": "علب لبن الاطفال",
+                    "icon": "https://api.bekyapay.com/file/babyMilk.svg",
+                    "enabled": true,
+                    "city": "الإسكندرية"
+                }
+            ],
         "responseDescription": "List of order Waste Types"
     },
     {
