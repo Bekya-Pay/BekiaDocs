@@ -16,31 +16,6 @@
                 "paramDescription": "The full name of the customer"
             },
             {
-                "paramName": "address",
-                "paramType": "String (255)",
-                "paramDescription": "The Address of the customer"
-            },
-            {
-                "paramName": "city",
-                "paramType": "String (255)",
-                "paramDescription": "The City of the Address of the customer"
-            },
-            {
-                "paramName":"lat",
-                "paramType":"String (255)",
-                "paramDescription": "The Latitude of the Address of the customer, Used to Show on Map"
-            },
-            {
-                "paramName":"lng",
-                "paramType":"String (255)",
-                "paramDescription": "The Longitude of the Address of the customer, Used to Show on Map"
-            },
-            {
-                "paramName": "zoneID",
-                "paramType": "Number",
-                "paramDescription": "The Selected Zone of the customer"
-            },
-            {
                 "paramName": "packageID",
                 "paramType": "Number",
                 "paramDescription": "The unique identifier of the payment Packaghe, Cash, Bank, etc.."
@@ -64,9 +39,6 @@
         "requestExample": {
             "userID": "12345",
             "name": "John Doe",
-            "city":"Alexandria",
-            "address": "456 Elm St, City, Country",
-            "zoneID": 1,
             "image": "https://example.com/profile.jpg",
             "phone": "+1234567890",
             "packageID": "67890"
@@ -1040,13 +1012,50 @@
                 "paramName": "address",
                 "paramType": "String (255)",
                 "paramDescription": "The address to be added as Text"
+            },
+            {
+                "paramName": "lat",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The latitude of the address location"
+            },
+            {
+                "paramName": "lng",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The longitude of the address location"
+            },
+            {
+                "paramName": "address_type",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The type of address, e.g., home, work"
+            },
+            {
+                "paramName": "building_number",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The building number of the address"
+            },
+            {
+                "paramName": "floor_number",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The floor number of the address"
+            },
+            {
+                "paramName": "apartment_number",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The apartment number of the address"
             }
+            
         ],
         "requestExample": {
             "userID": "asdasfqwsa21asd",
             "city":"alex",
             "zone":"zone1",
-            "address": "456 Elm St, City, Country"
+            "address": "456 Elm St, City, Country",
+            "lat": "31.2001",
+            "lng": "29.9187",
+            "address_type": "home",
+            "building_number": "10",
+            "floor_number": "2",
+            "apartment_number": "5A"
         },
         "responseParameters": [],
         "responseExample": "Done",
