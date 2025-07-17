@@ -908,6 +908,110 @@
         "responseParameters": [],
         "responseExample": "Done",
         "responseDescription": "Confirms that the Order has been marked Picked-up and Quntity and Price are Set"
+    },
+    {
+        "endpoint": "/worker/submit_affiliate_form",
+        "section": "worker",
+        "method": "POST",
+        "description": "Submit Affiliate Form",        
+        "parameters": [
+            {
+                "paramName": "full_name",
+                "paramType": "String (255)",
+                "paramDescription": "The full name of the worker"
+            },
+            {
+                "paramName": "phone",
+                "paramType": "String (255)",
+                "paramDescription": "The phone number of the worker"
+            },
+            {
+                "paramName": "national_number",
+                "paramType": "String (255)",
+                "paramDescription": "The national number of the worker"
+            },
+            {
+                "paramName": "national_id",
+                "paramType": "String (255)",
+                "paramDescription": "The national ID Image Uploaded URL of the worker"
+            },
+            {
+                "paramName": "birth_date",
+                "paramType": "Date",
+                "paramDescription": "The birth date of the worker"
+            },
+            {
+                "paramName": "have_motorcycle",
+                "paramType": "Boolean",
+                "paramDescription": "(optional) Whether the worker has a motorcycle or not"
+            },
+            {
+                "paramName": "motorcycle_licensed",
+                "paramType": "Boolean",
+                "paramDescription": "(optional) Whether the motorcycle is licensed or not"
+            },
+            {
+                "paramName": "previous_work_experience",
+                "paramType": "String (500)",
+                "paramDescription": "(optional) Previous work experience of the worker"
+            },
+            {
+                "paramName": "good_with_mobile_apps",
+                "paramType": "Boolean",
+                "paramDescription": "(optional) Whether the worker is good with mobile apps or not"
+            },
+            {
+                "paramName": "can_read_and_write",
+                "paramType": "Boolean",
+                "paramDescription": "(optional) Whether the worker can read and write or not"
+            },
+            {
+                "paramName": "current_address",
+                "paramType": "String (500)",
+                "paramDescription": "(optional) The current address of the worker"
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (100)",
+                "paramDescription": "(optional) The city where the worker is located"
+            },
+            {
+                "paramName": "available_working_zones",
+                "paramType": "String (500)",
+                "paramDescription": "(optional) List of zones where the worker is available to work"
+            },
+            {
+                "paramName": "available_working_days",
+                "paramType": "String (500)",
+                "paramDescription": "(optional) List of days when the worker is available to work"
+            },
+            {
+                "paramName": "available_working_hours",
+                "paramType": "String (500)",
+                "paramDescription": "(optional) List of hours when the worker is available to work"
+            }
+            
+        ],
+        "requestExample": {
+            "full_name": "John Doe",
+            "phone": "123-456-7890",
+            "national_number": "987654321",
+            "national_id": "https://example.com/national_id.jpg",
+            "birth_date": "1990-01-01",
+            "have_motorcycle": true,
+            "motorcycle_licensed": true,
+            "previous_work_experience": "Worked at Company X for 5 years",
+            "good_with_mobile_apps": true,
+            "can_read_and_write": true,
+            "current_address": "123 Main St, Anytown, USA",
+            "city": "دمنهور",
+            "available_working_zones": "Zone 1, Zone 2",
+            "available_working_days": "Monday, Tuesday",
+            "available_working_hours": "9 AM - 5 PM"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the Affiliate Form has been submitted successfully"
     }
 
 ]
