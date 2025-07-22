@@ -1138,6 +1138,86 @@
         "responseDescription": "Confirms that the address has been added"
     },
     {
+        "endpoint": "/customer/edit_address",
+        "section": "customer",
+        "method": "POST",
+        "description": "Edit an existing address for the customer",
+        "parameters": [
+            {
+                "paramName": "userID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the customer"
+            },
+            {
+                "paramName": "addressID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the address to be edited"
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "The City of the Customer"
+            },
+            {
+                "paramName": "zone",
+                "paramType": "String (255)",
+                "paramDescription": "The Zone of Which side of the City the Customer is at"
+            },
+            {
+                "paramName": "address",
+                "paramType": "String (255)",
+                "paramDescription": "The address to be added as Text"
+            },
+            {
+                "paramName": "lat",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The latitude of the address location"
+            },
+            {
+                "paramName": "lng",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The longitude of the address location"
+            },
+            {
+                "paramName": "address_type",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The type of address, e.g., home, work"
+            },
+            {
+                "paramName": "building_number",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The building number of the address"
+            },
+            {
+                "paramName": "floor_number",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The floor number of the address"
+            },
+            {
+                "paramName": "apartment_number",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) The apartment number of the address"
+            }
+            
+        ],
+        "requestExample": {
+            "userID": "asdasfqwsa21asd",
+            "addressID": 1,
+            "city":"alex",
+            "zone":"zone1",
+            "address": "456 Elm St, City, Country",
+            "lat": "31.2001",
+            "lng": "29.9187",
+            "address_type": "home",
+            "building_number": "10",
+            "floor_number": "2",
+            "apartment_number": "5A"
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the address has been Edited"
+    },
+    {
         "endpoint": "/customer/drop_offs",
         "section": "customer",
         "method": "GET",
