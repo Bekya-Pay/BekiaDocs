@@ -1075,6 +1075,11 @@
                 "paramDescription": "The unique identifier of the customer"
             },
             {
+                "paramName": "name",
+                "paramType": "String (255)",
+                "paramDescription": "The Name of the Address Like Home, Work, etc."
+            },
+            {
                 "paramName": "city",
                 "paramType": "String (255)",
                 "paramDescription": "The City of the Customer"
@@ -1124,6 +1129,7 @@
         "requestExample": {
             "userID": "asdasfqwsa21asd",
             "city":"alex",
+            "name": "Home",
             "zone":"zone1",
             "address": "456 Elm St, City, Country",
             "lat": "31.2001",
@@ -1152,6 +1158,11 @@
                 "paramName": "addressID",
                 "paramType": "Number",
                 "paramDescription": "The unique identifier of the address to be edited"
+            },
+            {
+                "paramName": "name",
+                "paramType": "String (255)",
+                "paramDescription": "The Name of the Address Like Home, Work, etc."
             },
             {
                 "paramName": "city",
@@ -1203,6 +1214,7 @@
         "requestExample": {
             "userID": "asdasfqwsa21asd",
             "addressID": 1,
+            "name": "Home",
             "city":"alex",
             "zone":"zone1",
             "address": "456 Elm St, City, Country",
