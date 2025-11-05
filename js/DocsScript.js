@@ -14,7 +14,8 @@ const jsonFiles = [
     'jsonDocs/Admin.json',
     'jsonDocs/Manager.json',
     'jsonDocs/Worker.json',
-    'jsonDocs/Customer.json'
+    'jsonDocs/Customer.json',
+    'jsonDocs/Warehouse.json'
 ];
 
 // Fetch all JSON files and combine their data

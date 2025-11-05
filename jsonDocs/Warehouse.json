@@ -1,0 +1,861 @@
+[
+    {
+        "endpoint": "/warehouse/handover_orders",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get all handover orders with optional filters",
+        "parameters": [
+            {
+                "paramName": "status",
+                "paramType": "String (enum)",
+                "paramDescription": "Optional. Filter by status: 'pending', 'received', 'approved', 'declined', 'processed', 'cancelled'"
+            },
+            {
+                "paramName": "workerID",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. Filter by worker ID"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "status": "pending",
+            "workerID": "worker123"
+        },
+        "responseParameters": [],
+        "responseExample": [
+            {
+                "id": 1,
+                "order_date": "2024-01-15",
+                "sorted_weight": 5.5,
+                "rejected_weight": 0.5,
+                "notes": "Good quality",
+                "send_time": "2024-01-15T10:30:00Z",
+                "status": "pending",
+                "order_number": "HO-1705312200000",
+                "received_date": null,
+                "processed_date": null,
+                "worker": {
+                    "id": "worker123",
+                    "name": "Ahmed Ali",
+                    "profile_image": "https://example.com/profile.jpg",
+                    "city": "الإسكندرية"
+                },
+                "waste_type": {
+                    "id": 1,
+                    "name": "Plastic",
+                    "icon": "https://example.com/plastic.svg"
+                },
+                "sender": null,
+                "receipt": null
+            }
+        ],
+        "responseDescription": "Returns an array of handover orders with related worker, waste type, sender, and receipt information"
+    },
+    {
+        "endpoint": "/warehouse/handover_order_details",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get detailed information about a specific handover order",
+        "parameters": [
+            {
+                "paramName": "handoverOrderID",
+                "paramType": "Integer",
+                "paramDescription": "The unique identifier of the handover order"
+            }
+        ],
+        "requestExample": {
+            "handoverOrderID": 1
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "order_date": "2024-01-15",
+            "sorted_weight": 5.5,
+            "rejected_weight": 0.5,
+            "notes": "Good quality",
+            "send_time": "2024-01-15T10:30:00Z",
+            "status": "pending",
+            "order_number": "HO-1705312200000",
+            "received_date": null,
+            "processed_date": null,
+            "worker": {
+                "id": "worker123",
+                "name": "Ahmed Ali",
+                "profile_image": "https://example.com/profile.jpg",
+                "city": "الإسكندرية"
+            },
+            "waste_type": {
+                "id": 1,
+                "name": "Plastic",
+                "icon": "https://example.com/plastic.svg"
+            },
+            "sender": null,
+            "receipt": null
+        },
+        "responseDescription": "Returns detailed information about the specified handover order"
+    },
+    {
+        "endpoint": "/warehouse/create_handover_order",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Create a new handover order (typically created by workers when delivering waste to warehouse)",
+        "parameters": [
+            {
+                "paramName": "workerID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the worker creating the order"
+            },
+            {
+                "paramName": "wasteTypeID",
+                "paramType": "Integer",
+                "paramDescription": "The ID of the waste type"
+            },
+            {
+                "paramName": "sortedWeight",
+                "paramType": "Float",
+                "paramDescription": "The sorted weight in kg (accepted waste)"
+            },
+            {
+                "paramName": "rejectedWeight",
+                "paramType": "Float",
+                "paramDescription": "Optional. The rejected weight in kg (default: 0)"
+            },
+            {
+                "paramName": "notes",
+                "paramType": "String (1000)",
+                "paramDescription": "Optional. Notes about the handover"
+            },
+            {
+                "paramName": "orderDate",
+                "paramType": "Date",
+                "paramDescription": "Optional. The date of the order (default: current date)"
+            },
+            {
+                "paramName": "orderNumber",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. Custom order number (default: auto-generated)"
+            },
+            {
+                "paramName": "senderID",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. The ID of the staff member who sent the order"
+            }
+        ],
+        "requestExample": {
+            "workerID": "worker123",
+            "wasteTypeID": 1,
+            "sortedWeight": 5.5,
+            "rejectedWeight": 0.5,
+            "notes": "Good quality waste",
+            "orderDate": "2024-01-15"
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "order_date": "2024-01-15",
+            "sorted_weight": 5.5,
+            "rejected_weight": 0.5,
+            "notes": "Good quality waste",
+            "send_time": "2024-01-15T10:30:00Z",
+            "status": "pending",
+            "order_number": "HO-1705312200000",
+            "received_date": null,
+            "processed_date": null
+        },
+        "responseDescription": "Returns the created handover order with all its details"
+    },
+    {
+        "endpoint": "/warehouse/update_handover_order_status",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Update the status of a handover order (receive, approve, decline, etc.)",
+        "parameters": [
+            {
+                "paramName": "handoverOrderID",
+                "paramType": "Integer",
+                "paramDescription": "The unique identifier of the handover order"
+            },
+            {
+                "paramName": "status",
+                "paramType": "String (enum)",
+                "paramDescription": "The new status: 'pending', 'received', 'approved', 'declined', 'processed', 'cancelled'"
+            },
+            {
+                "paramName": "notes",
+                "paramType": "String (1000)",
+                "paramDescription": "Optional. Additional notes about the status change"
+            }
+        ],
+        "requestExample": {
+            "handoverOrderID": 1,
+            "status": "approved",
+            "notes": "Waste quality verified and approved"
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "order_date": "2024-01-15",
+            "sorted_weight": 5.5,
+            "rejected_weight": 0.5,
+            "notes": "Waste quality verified and approved",
+            "send_time": "2024-01-15T10:30:00Z",
+            "status": "approved",
+            "order_number": "HO-1705312200000",
+            "received_date": "2024-01-15T11:00:00Z",
+            "processed_date": "2024-01-15T11:15:00Z"
+        },
+        "responseDescription": "Returns the updated handover order with new status and updated dates"
+    },
+    {
+        "endpoint": "/warehouse/delete_handover_order",
+        "section": "warehouse",
+        "method": "DELETE",
+        "description": "Delete or cancel a handover order (cannot delete processed orders)",
+        "parameters": [
+            {
+                "paramName": "handoverOrderID",
+                "paramType": "Integer",
+                "paramDescription": "The unique identifier of the handover order to delete"
+            }
+        ],
+        "requestExample": {
+            "handoverOrderID": 1
+        },
+        "responseParameters": [],
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the handover order has been deleted"
+    },
+    {
+        "endpoint": "/warehouse/handover_order_statuses",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get all available handover order statuses",
+        "parameters": [],
+        "requestExample": {},
+        "responseParameters": [],
+        "responseExample": [
+            "pending",
+            "received",
+            "approved",
+            "declined",
+            "processed",
+            "cancelled"
+        ],
+        "responseDescription": "Returns an array of all available handover order status values"
+    },
+    {
+        "endpoint": "/warehouse/worker_receipts",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get all worker receipts with optional filters",
+        "parameters": [
+            {
+                "paramName": "workerID",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. Filter by worker ID"
+            },
+            {
+                "paramName": "status",
+                "paramType": "String (enum)",
+                "paramDescription": "Optional. Filter by status: 'pending', 'approved', 'declined', 'cancelled'"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "workerID": "worker123",
+            "status": "pending"
+        },
+        "responseParameters": [],
+        "responseExample": [
+            {
+                "id": 1,
+                "amount": 250.50,
+                "issue_date": "2024-01-15T12:00:00Z",
+                "complete_date": null,
+                "status": "pending",
+                "notes": null,
+                "worker": {
+                    "id": "worker123",
+                    "name": "Ahmed Ali",
+                    "profile_image": "https://example.com/profile.jpg",
+                    "city": "الإسكندرية"
+                },
+                "handover_orders": [
+                    {
+                        "id": 1,
+                        "sorted_weight": 5.5,
+                        "waste_type": {
+                            "id": 1,
+                            "name": "Plastic",
+                            "icon": "https://example.com/plastic.svg"
+                        }
+                    }
+                ]
+            }
+        ],
+        "responseDescription": "Returns an array of worker receipts with related worker and handover orders information"
+    },
+    {
+        "endpoint": "/warehouse/worker_receipt_details",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get detailed information about a specific worker receipt",
+        "parameters": [
+            {
+                "paramName": "receiptID",
+                "paramType": "Integer",
+                "paramDescription": "The unique identifier of the worker receipt"
+            }
+        ],
+        "requestExample": {
+            "receiptID": 1
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "amount": 250.50,
+            "issue_date": "2024-01-15T12:00:00Z",
+            "complete_date": null,
+            "status": "pending",
+            "notes": null,
+            "worker": {
+                "id": "worker123",
+                "name": "Ahmed Ali",
+                "profile_image": "https://example.com/profile.jpg",
+                "city": "الإسكندرية"
+            },
+            "handover_orders": [
+                {
+                    "id": 1,
+                    "order_date": "2024-01-15",
+                    "sorted_weight": 5.5,
+                    "rejected_weight": 0.5,
+                    "notes": "Good quality",
+                    "send_time": "2024-01-15T10:30:00Z",
+                    "status": "processed",
+                    "order_number": "HO-1705312200000",
+                    "waste_type": {
+                        "id": 1,
+                        "name": "Plastic",
+                        "icon": "https://example.com/plastic.svg"
+                    },
+                    "worker": {
+                        "id": "worker123",
+                        "name": "Ahmed Ali"
+                    }
+                }
+            ]
+        },
+        "responseDescription": "Returns detailed information about the specified worker receipt including all related handover orders"
+    },
+    {
+        "endpoint": "/warehouse/create_worker_receipt",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Create a worker receipt from approved handover orders. The receipt amount is automatically calculated based on warehouse pricing tiers",
+        "parameters": [
+            {
+                "paramName": "workerID",
+                "paramType": "String (255)",
+                "paramDescription": "The unique identifier of the worker"
+            },
+            {
+                "paramName": "handoverOrderIDs",
+                "paramType": "Array of Integers",
+                "paramDescription": "Array of handover order IDs that must be approved and belong to the worker"
+            },
+            {
+                "paramName": "notes",
+                "paramType": "String (500)",
+                "paramDescription": "Optional. Notes about the receipt"
+            }
+        ],
+        "requestExample": {
+            "workerID": "worker123",
+            "handoverOrderIDs": [1, 2, 3],
+            "notes": "Receipt for January deliveries"
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "amount": 250.50,
+            "issue_date": "2024-01-15T12:00:00Z",
+            "complete_date": null,
+            "status": "pending",
+            "notes": "Receipt for January deliveries",
+            "worker": {
+                "id": "worker123",
+                "name": "Ahmed Ali",
+                "profile_image": "https://example.com/profile.jpg",
+                "city": "الإسكندرية"
+            },
+            "handover_orders": [
+                {
+                    "id": 1,
+                    "sorted_weight": 5.5,
+                    "waste_type": {
+                        "id": 1,
+                        "name": "Plastic",
+                        "icon": "https://example.com/plastic.svg"
+                    }
+                },
+                {
+                    "id": 2,
+                    "sorted_weight": 3.2,
+                    "waste_type": {
+                        "id": 2,
+                        "name": "Metal",
+                        "icon": "https://example.com/metal.svg"
+                    }
+                }
+            ]
+        },
+        "responseDescription": "Returns the created worker receipt with calculated amount and linked handover orders. The receipt amount is calculated based on warehouse pricing tiers (tier1: 0-4kg, tier2: 4-7kg, tier3: 7-10kg, tier4: 10+kg)"
+    },
+    {
+        "endpoint": "/warehouse/update_worker_receipt_status",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Update the status of a worker receipt (approve, decline, cancel)",
+        "parameters": [
+            {
+                "paramName": "receiptID",
+                "paramType": "Integer",
+                "paramDescription": "The unique identifier of the worker receipt"
+            },
+            {
+                "paramName": "status",
+                "paramType": "String (enum)",
+                "paramDescription": "The new status: 'pending', 'approved', 'declined', 'cancelled'"
+            },
+            {
+                "paramName": "notes",
+                "paramType": "String (500)",
+                "paramDescription": "Optional. Additional notes about the status change"
+            }
+        ],
+        "requestExample": {
+            "receiptID": 1,
+            "status": "approved",
+            "notes": "Payment processed successfully"
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "amount": 250.50,
+            "issue_date": "2024-01-15T12:00:00Z",
+            "complete_date": "2024-01-15T14:00:00Z",
+            "status": "approved",
+            "notes": "Payment processed successfully"
+        },
+        "responseDescription": "Returns the updated worker receipt with new status. If status is 'approved', the complete_date is automatically set"
+    },
+    {
+        "endpoint": "/warehouse/worker_receipt_statuses",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get all available worker receipt statuses",
+        "parameters": [],
+        "requestExample": {},
+        "responseParameters": [],
+        "responseExample": [
+            "pending",
+            "approved",
+            "declined",
+            "cancelled"
+        ],
+        "responseDescription": "Returns an array of all available worker receipt status values"
+    },
+    {
+        "endpoint": "/warehouse/warehouse_prices",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get all warehouse prices with optional city filter",
+        "parameters": [
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. Filter by city name"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "city": "الإسكندرية"
+        },
+        "responseParameters": [],
+        "responseExample": [
+            {
+                "id": 1,
+                "teir1_price": 10.0,
+                "teir2_price": 12.0,
+                "teir3_price": 15.0,
+                "teir4_price": 18.0,
+                "city": "الإسكندرية",
+                "waste_type": {
+                    "id": 1,
+                    "name": "Plastic",
+                    "icon": "https://example.com/plastic.svg"
+                }
+            },
+            {
+                "id": 2,
+                "teir1_price": 8.0,
+                "teir2_price": 10.0,
+                "teir3_price": 12.0,
+                "teir4_price": 15.0,
+                "city": "الإسكندرية",
+                "waste_type": {
+                    "id": 2,
+                    "name": "Metal",
+                    "icon": "https://example.com/metal.svg"
+                }
+            }
+        ],
+        "responseDescription": "Returns an array of warehouse prices with waste type information. Prices are tiered: tier1 (0-4kg), tier2 (4-7kg), tier3 (7-10kg), tier4 (10+kg)"
+    },
+    {
+        "endpoint": "/warehouse/set_warehouse_price",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Create or update warehouse price for a specific waste type and city",
+        "parameters": [
+            {
+                "paramName": "wasteTypeID",
+                "paramType": "Integer",
+                "paramDescription": "The ID of the waste type"
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "The city name for this price"
+            },
+            {
+                "paramName": "teir1Price",
+                "paramType": "Float",
+                "paramDescription": "Optional. Price per kg for tier 1 (0-4kg). If not provided and price exists, keeps current value"
+            },
+            {
+                "paramName": "teir2Price",
+                "paramType": "Float",
+                "paramDescription": "Optional. Price per kg for tier 2 (4-7kg). If not provided and price exists, keeps current value"
+            },
+            {
+                "paramName": "teir3Price",
+                "paramType": "Float",
+                "paramDescription": "Optional. Price per kg for tier 3 (7-10kg). If not provided and price exists, keeps current value"
+            },
+            {
+                "paramName": "teir4Price",
+                "paramType": "Float",
+                "paramDescription": "Optional. Price per kg for tier 4 (10+kg). If not provided and price exists, keeps current value"
+            }
+        ],
+        "requestExample": {
+            "wasteTypeID": 1,
+            "city": "الإسكندرية",
+            "teir1Price": 10.0,
+            "teir2Price": 12.0,
+            "teir3Price": 15.0,
+            "teir4Price": 18.0
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "teir1_price": 10.0,
+            "teir2_price": 12.0,
+            "teir3_price": 15.0,
+            "teir4_price": 18.0,
+            "city": "الإسكندرية",
+            "waste_type": {
+                "id": 1,
+                "name": "Plastic",
+                "icon": "https://example.com/plastic.svg"
+            }
+        },
+        "responseDescription": "Returns the created or updated warehouse price with waste type information. If price exists for the waste type and city, it updates; otherwise creates a new one"
+    },
+    {
+        "endpoint": "/warehouse/analysis_numbers",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get all warehouse analysis data for dashboard (waste in/out counts, money spent/pending, total weight collected)",
+        "parameters": [
+            {
+                "paramName": "start_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. Start date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "end_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. End date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "start_date": "2024-01-01",
+            "end_date": "2024-01-31"
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "waste_in_count": 150,
+            "waste_out_count": 120,
+            "money_spent": "25000.50",
+            "money_pending": "5000.25",
+            "total_weight_collected": "3500.75"
+        },
+        "responseDescription": "Returns comprehensive warehouse dashboard analytics including waste in/out counts, money spent (approved receipts), money pending (pending receipts), and total weight collected"
+    },
+    {
+        "endpoint": "/warehouse/handover_orders_count_by_status",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get count and percentage of handover orders grouped by status",
+        "parameters": [
+            {
+                "paramName": "start_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. Start date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "end_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. End date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "start_date": "2024-01-01",
+            "end_date": "2024-01-31"
+        },
+        "responseParameters": [],
+        "responseExample": [
+            {
+                "status": "pending",
+                "count": "50",
+                "percentage": "33.33"
+            },
+            {
+                "status": "received",
+                "count": "30",
+                "percentage": "20.00"
+            },
+            {
+                "status": "approved",
+                "count": "40",
+                "percentage": "26.67"
+            },
+            {
+                "status": "declined",
+                "count": "10",
+                "percentage": "6.67"
+            },
+            {
+                "status": "processed",
+                "count": "20",
+                "percentage": "13.33"
+            },
+            {
+                "status": "cancelled",
+                "count": "0",
+                "percentage": "0.00"
+            }
+        ],
+        "responseDescription": "Returns an array of handover orders grouped by status with count and percentage for each status"
+    },
+    {
+        "endpoint": "/warehouse/handover_orders_count_by_waste_type",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get count and total weight of handover orders grouped by waste type",
+        "parameters": [
+            {
+                "paramName": "start_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. Start date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "end_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. End date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "start_date": "2024-01-01",
+            "end_date": "2024-01-31"
+        },
+        "responseParameters": [],
+        "responseExample": [
+            {
+                "waste_type_name": "Plastic",
+                "waste_type_icon": "https://example.com/plastic.svg",
+                "count": "45",
+                "total_weight": "250.50"
+            },
+            {
+                "waste_type_name": "Metal",
+                "waste_type_icon": "https://example.com/metal.svg",
+                "count": "30",
+                "total_weight": "180.25"
+            },
+            {
+                "waste_type_name": "Paper",
+                "waste_type_icon": "https://example.com/paper.svg",
+                "count": "25",
+                "total_weight": "120.75"
+            }
+        ],
+        "responseDescription": "Returns an array of handover orders grouped by waste type with count and total sorted weight for each waste type, ordered by count descending"
+    },
+    {
+        "endpoint": "/warehouse/handover_orders_count_by_worker",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get count and total weight of handover orders grouped by worker",
+        "parameters": [
+            {
+                "paramName": "start_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. Start date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "end_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. End date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "start_date": "2024-01-01",
+            "end_date": "2024-01-31"
+        },
+        "responseParameters": [],
+        "responseExample": [
+            {
+                "worker_id": "worker123",
+                "worker_name": "Ahmed Ali",
+                "count": "35",
+                "total_weight": "450.25"
+            },
+            {
+                "worker_id": "worker456",
+                "worker_name": "Mohamed Hassan",
+                "count": "28",
+                "total_weight": "380.50"
+            },
+            {
+                "worker_id": "worker789",
+                "worker_name": "Ali Ibrahim",
+                "count": "22",
+                "total_weight": "290.75"
+            }
+        ],
+        "responseDescription": "Returns an array of handover orders grouped by worker with count and total sorted weight for each worker, ordered by count descending"
+    },
+    {
+        "endpoint": "/warehouse/waste_types_collected",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get waste types collected by warehouse over the last 12 months, showing weight collected per month for each waste type",
+        "parameters": [
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {},
+        "responseParameters": [],
+        "responseExample": {
+            "Plastic": [50.5, 45.2, 60.8, 55.3, 48.9, 52.1, 58.7, 49.3, 53.6, 47.2, 51.4, 54.9],
+            "Metal": [30.2, 28.5, 35.1, 32.8, 29.4, 31.6, 33.9, 27.8, 30.5, 28.9, 32.1, 34.3],
+            "Paper": [25.8, 23.4, 28.6, 26.9, 24.7, 27.2, 29.1, 23.1, 25.3, 22.8, 26.4, 28.5]
+        },
+        "responseDescription": "Returns an object where keys are waste type names and values are arrays of 12 numbers representing the weight (in kg) collected each month for the last 12 months. Months are indexed 0-11 (January-December)"
+    },
+    {
+        "endpoint": "/warehouse/worker_receipts_count_by_status",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get count, total amount, and percentage of worker receipts grouped by status",
+        "parameters": [
+            {
+                "paramName": "start_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. Start date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "end_date",
+                "paramType": "Date (String)",
+                "paramDescription": "Optional. End date for filtering (default: current date). Format: YYYY-MM-DD"
+            },
+            {
+                "paramName": "showDataFor",
+                "paramType": "String (255)",
+                "paramDescription": "Optional. City name for CEO/staff with city '*' to filter by specific city"
+            }
+        ],
+        "requestExample": {
+            "start_date": "2024-01-01",
+            "end_date": "2024-01-31"
+        },
+        "responseParameters": [],
+        "responseExample": [
+            {
+                "status": "pending",
+                "count": "15",
+                "total_amount": "5000.25",
+                "percentage": "37.50"
+            },
+            {
+                "status": "approved",
+                "count": "20",
+                "total_amount": "25000.50",
+                "percentage": "50.00"
+            },
+            {
+                "status": "declined",
+                "count": "3",
+                "total_amount": "800.00",
+                "percentage": "7.50"
+            },
+            {
+                "status": "cancelled",
+                "count": "2",
+                "total_amount": "500.00",
+                "percentage": "5.00"
+            }
+        ],
+        "responseDescription": "Returns an array of worker receipts grouped by status with count, total amount, and percentage for each status"
+    }
+]
+
