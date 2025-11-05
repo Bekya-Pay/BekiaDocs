@@ -856,6 +856,129 @@
             }
         ],
         "responseDescription": "Returns an array of worker receipts grouped by status with count, total amount, and percentage for each status"
+    },
+    {
+        "endpoint": "/warehouse/import_from_google_sheets",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Import handover orders from Google Sheets CSV. The function maps Arabic column titles to database fields, validates each row, and skips/updates existing orders based on order_number. Errors are logged per row and processing continues for remaining rows.",
+        "parameters": [
+            {
+                "paramName": "sheetUrl",
+                "paramType": "String (URL)",
+                "paramDescription": "The Google Sheets shareable URL. The function will automatically convert it to CSV export format."
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "The city name to filter workers and waste types by (e.g., 'الإسكندرية')"
+            }
+        ],
+        "requestExample": {
+            "sheetUrl": "https://docs.google.com/spreadsheets/d/1ABC123XYZ/edit",
+            "city": "الإسكندرية"
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "success": true,
+            "imported": 45,
+            "updated": 12,
+            "errors": [
+                {
+                    "row": 5,
+                    "error": "Worker not found: أحمد محمد",
+                    "data": {
+                        "order_number": "HO-001",
+                        "worker": "أحمد محمد",
+                        "waste_type": "Plastic",
+                        "sorted_weight": "5.5"
+                    }
+                },
+                {
+                    "row": 23,
+                    "error": "Invalid order_date: 2024/13/01",
+                    "data": {
+                        "order_number": "HO-002",
+                        "order_date": "2024/13/01"
+                    }
+                }
+            ],
+            "total_rows_processed": 59
+        },
+        "responseDescription": "Returns import results including: success (true if no errors), imported count (new records), updated count (existing records updated), errors array (with row number, error message, and row data for each error), and total_rows_processed. The function maps Arabic column titles: 'التاريخ'→order_date, 'المندوب'→worker, 'نوع المخلف'→waste_type, 'وزن المفروز'→sorted_weight, 'وزن المرفوض'→rejected_weight, 'ملحوظات'→notes, 'وقت الإرسال'→send_time, 'المرسل'→sender, 'رقم الطلب'→order_number. If an order with the same order_number exists, it will be updated instead of creating a duplicate."
+    },
+    {
+        "endpoint": "/warehouse/warehouse_config",
+        "section": "warehouse",
+        "method": "GET",
+        "description": "Get warehouse configuration including last update information and automatic updates settings",
+        "parameters": [],
+        "requestExample": {},
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "last_update_date": "2024-01-15T12:30:00Z",
+            "last_update_type": "automatic",
+            "automatic_updates_enabled": true,
+            "last_update_status": "success",
+            "last_imported_count": 45,
+            "last_updated_count": 12,
+            "last_errors_count": 0
+        },
+        "responseDescription": "Returns warehouse configuration including: last_update_date (when the last import was done), last_update_type ('automatic' for cron job or 'manual' for dashboard trigger), automatic_updates_enabled (whether cron job is enabled), last_update_status (status message), and counts from last import (imported, updated, errors)"
+    },
+    {
+        "endpoint": "/warehouse/update_warehouse_config",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Update warehouse configuration, primarily to enable/disable automatic updates (cron job)",
+        "parameters": [
+            {
+                "paramName": "automatic_updates_enabled",
+                "paramType": "Boolean",
+                "paramDescription": "Enable or disable automatic updates (cron job that runs every 6 hours)"
+            }
+        ],
+        "requestExample": {
+            "automatic_updates_enabled": false
+        },
+        "responseParameters": [],
+        "responseExample": {
+            "id": 1,
+            "last_update_date": "2024-01-15T12:30:00Z",
+            "last_update_type": "automatic",
+            "automatic_updates_enabled": false,
+            "last_update_status": "success",
+            "last_imported_count": 45,
+            "last_updated_count": 12,
+            "last_errors_count": 0
+        },
+        "responseDescription": "Returns updated warehouse configuration"
+    },
+    {
+        "endpoint": "/warehouse/trigger_import_all_cities",
+        "section": "warehouse",
+        "method": "POST",
+        "description": "Manually trigger import from Google Sheets for both cities (Damnhour and Alexandria). This imports from both pre-configured sheets and marks the update as 'manual' in the configuration.",
+        "parameters": [],
+        "requestExample": {},
+        "responseParameters": [],
+        "responseExample": {
+            "success": true,
+            "damnhour": {
+                "success": true,
+                "imported": 25,
+                "updated": 10,
+                "errors_count": 2
+            },
+            "alexandria": {
+                "success": true,
+                "imported": 30,
+                "updated": 15,
+                "errors_count": 1
+            }
+        },
+        "responseDescription": "Returns import results for both cities. The function automatically imports from: Damnhour sheet (دمهور) and Alexandria sheet (الإسكندرية). Each city result includes success status, imported count, updated count, and errors count. This is the same as the automatic cron job but can be triggered manually from the dashboard."
     }
 ]
 
