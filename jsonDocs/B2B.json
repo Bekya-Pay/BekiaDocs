@@ -1,0 +1,1158 @@
+[
+    {
+        "endpoint": "/manager/b2b/companies_list",
+        "section": "B2B Companies",
+        "method": "GET",
+        "description": "Retrieve the list of all B2B companies with pagination and search",
+        "parameters": [
+            {
+                "paramName": "page",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Page number for pagination",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Number of results per page",
+                "optional": true
+            },
+            {
+                "paramName": "search",
+                "paramType": "String",
+                "paramDescription": "(Optional) Search term for company name",
+                "optional": true
+            },
+            {
+                "paramName": "active",
+                "paramType": "Boolean",
+                "paramDescription": "(Optional) Filter by active status",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "page": 1,
+            "limit": 10,
+            "search": "company",
+            "active": true
+        },
+        "responseExample": {
+            "companies": [
+                {
+                    "id": 1,
+                    "name": "ABC Corporation",
+                    "city": "الإسكندرية",
+                    "contact_person": "John Doe",
+                    "phone": "+201234567890",
+                    "email": "contact@abc.com",
+                    "active": true,
+                    "collection_frequency": "weekly",
+                    "collection_days": ["Sunday", "Wednesday"],
+                    "collection_cycle": 4,
+                    "branches": []
+                }
+            ],
+            "total": 1
+        },
+        "responseDescription": "List of B2B companies with pagination info"
+    },
+    {
+        "endpoint": "/manager/b2b/company_info",
+        "section": "B2B Companies",
+        "method": "GET",
+        "description": "Get detailed information about a specific B2B company including its branches",
+        "parameters": [
+            {
+                "paramName": "companyID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the B2B company"
+            }
+        ],
+        "requestExample": {
+            "companyID": 1
+        },
+        "responseExample": {
+            "id": 1,
+            "name": "ABC Corporation",
+            "city": "الإسكندرية",
+            "contact_person": "John Doe",
+            "phone": "+201234567890",
+            "email": "contact@abc.com",
+            "notes": "Important client",
+            "logo": "https://example.com/logo.png",
+            "active": true,
+            "collection_frequency": "weekly",
+            "collection_days": ["Sunday", "Wednesday"],
+            "collection_cycle": 4,
+            "created_at": "2024-01-15T10:00:00.000Z",
+            "branches": [
+                {
+                    "id": 1,
+                    "branch_name": "Main Branch",
+                    "address": "123 Main St",
+                    "city": "الإسكندرية",
+                    "lat": 31.2001,
+                    "lng": 29.9187,
+                    "active": true
+                }
+            ]
+        },
+        "responseDescription": "Detailed company information with all branches"
+    },
+    {
+        "endpoint": "/manager/b2b/add_company",
+        "section": "B2B Companies",
+        "method": "POST",
+        "description": "Add a new B2B company to the system",
+        "parameters": [
+            {
+                "paramName": "name",
+                "paramType": "String (255)",
+                "paramDescription": "The name of the B2B company"
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) City for filtering and pricing",
+                "optional": true
+            },
+            {
+                "paramName": "contact_person",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) Name of the contact person",
+                "optional": true
+            },
+            {
+                "paramName": "phone",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) Phone number",
+                "optional": true
+            },
+            {
+                "paramName": "email",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) Email address",
+                "optional": true
+            },
+            {
+                "paramName": "notes",
+                "paramType": "Text",
+                "paramDescription": "(Optional) Additional notes",
+                "optional": true
+            },
+            {
+                "paramName": "logo",
+                "paramType": "String (500)",
+                "paramDescription": "(Optional) Company logo URL",
+                "optional": true
+            },
+            {
+                "paramName": "collection_frequency",
+                "paramType": "String",
+                "paramDescription": "(Optional) 'weekly' or 'monthly'",
+                "optional": true
+            },
+            {
+                "paramName": "collection_days",
+                "paramType": "Array",
+                "paramDescription": "(Optional) Days for collection. For weekly: day names. For monthly: day numbers 1-31",
+                "optional": true
+            },
+            {
+                "paramName": "collection_cycle",
+                "paramType": "Number",
+                "paramDescription": "(Optional) After how many visits to issue a receipt",
+                "optional": true
+            },
+            {
+                "paramName": "active",
+                "paramType": "Boolean",
+                "paramDescription": "(Optional) Whether the company is active, defaults to true",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "name": "ABC Corporation",
+            "city": "الإسكندرية",
+            "contact_person": "John Doe",
+            "phone": "+201234567890",
+            "email": "contact@abc.com",
+            "collection_frequency": "weekly",
+            "collection_days": ["Sunday", "Wednesday"],
+            "collection_cycle": 4
+        },
+        "responseExample": {
+            "id": 1,
+            "name": "ABC Corporation",
+            "city": "الإسكندرية",
+            "contact_person": "John Doe",
+            "phone": "+201234567890",
+            "email": "contact@abc.com",
+            "active": true,
+            "collection_frequency": "weekly",
+            "collection_days": ["Sunday", "Wednesday"],
+            "collection_cycle": 4,
+            "created_at": "2024-01-15T10:00:00.000Z"
+        },
+        "responseDescription": "The newly created company object"
+    },
+    {
+        "endpoint": "/manager/b2b/update_company",
+        "section": "B2B Companies",
+        "method": "POST",
+        "description": "Update an existing B2B company's information",
+        "parameters": [
+            {
+                "paramName": "companyID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the company to update"
+            },
+            {
+                "paramName": "name",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) New company name",
+                "optional": true
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) City for filtering and pricing",
+                "optional": true
+            },
+            {
+                "paramName": "contact_person",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) Contact person name",
+                "optional": true
+            },
+            {
+                "paramName": "phone",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) Phone number",
+                "optional": true
+            },
+            {
+                "paramName": "email",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) Email address",
+                "optional": true
+            },
+            {
+                "paramName": "notes",
+                "paramType": "Text",
+                "paramDescription": "(Optional) Additional notes",
+                "optional": true
+            },
+            {
+                "paramName": "logo",
+                "paramType": "String (500)",
+                "paramDescription": "(Optional) Company logo URL",
+                "optional": true
+            },
+            {
+                "paramName": "collection_frequency",
+                "paramType": "String",
+                "paramDescription": "(Optional) 'weekly' or 'monthly'",
+                "optional": true
+            },
+            {
+                "paramName": "collection_days",
+                "paramType": "Array",
+                "paramDescription": "(Optional) Days for collection",
+                "optional": true
+            },
+            {
+                "paramName": "collection_cycle",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Collection cycle count",
+                "optional": true
+            },
+            {
+                "paramName": "apply_cycle_to_branches",
+                "paramType": "Boolean",
+                "paramDescription": "(Optional) Apply cycle setting to all branches",
+                "optional": true
+            },
+            {
+                "paramName": "active",
+                "paramType": "Boolean",
+                "paramDescription": "(Optional) Active status",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "companyID": 1,
+            "name": "ABC Corporation Updated",
+            "collection_cycle": 5,
+            "apply_cycle_to_branches": true
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the company has been updated"
+    },
+    {
+        "endpoint": "/manager/b2b/remove_company",
+        "section": "B2B Companies",
+        "method": "DELETE",
+        "description": "Delete a B2B company and all its branches",
+        "parameters": [
+            {
+                "paramName": "companyID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the company to delete"
+            }
+        ],
+        "requestExample": {
+            "companyID": 1
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the company has been deleted"
+    },
+    {
+        "endpoint": "/manager/b2b/branch_info",
+        "section": "B2B Branches",
+        "method": "GET",
+        "description": "Get detailed information about a specific branch",
+        "parameters": [
+            {
+                "paramName": "branchID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the branch"
+            }
+        ],
+        "requestExample": {
+            "branchID": 1
+        },
+        "responseExample": {
+            "id": 1,
+            "branch_name": "Main Branch",
+            "address": "123 Main St",
+            "city": "الإسكندرية",
+            "lat": 31.2001,
+            "lng": 29.9187,
+            "notes": "Near the mall",
+            "active": true,
+            "collection_frequency": "weekly",
+            "collection_days": ["Sunday", "Wednesday"],
+            "collection_cycle": 4,
+            "current_cycle_count": 2,
+            "next_collection_date": "2024-01-21",
+            "company": {
+                "id": 1,
+                "name": "ABC Corporation"
+            },
+            "zone": {
+                "id": 1,
+                "zone_name": "Zone A"
+            }
+        },
+        "responseDescription": "Detailed branch information"
+    },
+    {
+        "endpoint": "/manager/b2b/add_branch",
+        "section": "B2B Branches",
+        "method": "POST",
+        "description": "Add a new branch to a B2B company",
+        "parameters": [
+            {
+                "paramName": "companyID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the parent company"
+            },
+            {
+                "paramName": "branch_name",
+                "paramType": "String (255)",
+                "paramDescription": "Name of the branch"
+            },
+            {
+                "paramName": "address",
+                "paramType": "String (500)",
+                "paramDescription": "(Optional) Street address",
+                "optional": true
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) City name",
+                "optional": true
+            },
+            {
+                "paramName": "lat",
+                "paramType": "Float",
+                "paramDescription": "(Optional) Latitude coordinate",
+                "optional": true
+            },
+            {
+                "paramName": "lng",
+                "paramType": "Float",
+                "paramDescription": "(Optional) Longitude coordinate",
+                "optional": true
+            },
+            {
+                "paramName": "zoneID",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Zone ID for worker assignment",
+                "optional": true
+            },
+            {
+                "paramName": "collection_frequency",
+                "paramType": "String",
+                "paramDescription": "(Optional) 'weekly' or 'monthly', overrides company setting",
+                "optional": true
+            },
+            {
+                "paramName": "collection_days",
+                "paramType": "Array",
+                "paramDescription": "(Optional) Days for collection, overrides company setting",
+                "optional": true
+            },
+            {
+                "paramName": "collection_cycle",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Collection cycle, overrides company setting",
+                "optional": true
+            },
+            {
+                "paramName": "notes",
+                "paramType": "Text",
+                "paramDescription": "(Optional) Additional notes",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "companyID": 1,
+            "branch_name": "Downtown Branch",
+            "address": "456 Downtown St",
+            "city": "الإسكندرية",
+            "lat": 31.2100,
+            "lng": 29.9200,
+            "zoneID": 1,
+            "collection_frequency": "weekly",
+            "collection_days": ["Monday", "Thursday"]
+        },
+        "responseExample": {
+            "id": 2,
+            "branch_name": "Downtown Branch",
+            "address": "456 Downtown St",
+            "city": "الإسكندرية",
+            "lat": 31.2100,
+            "lng": 29.9200,
+            "active": true,
+            "collection_frequency": "weekly",
+            "collection_days": ["Monday", "Thursday"]
+        },
+        "responseDescription": "The newly created branch object"
+    },
+    {
+        "endpoint": "/manager/b2b/update_branch",
+        "section": "B2B Branches",
+        "method": "POST",
+        "description": "Update an existing branch's information",
+        "parameters": [
+            {
+                "paramName": "branchID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the branch to update"
+            },
+            {
+                "paramName": "branch_name",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) Branch name",
+                "optional": true
+            },
+            {
+                "paramName": "address",
+                "paramType": "String (500)",
+                "paramDescription": "(Optional) Street address",
+                "optional": true
+            },
+            {
+                "paramName": "city",
+                "paramType": "String (255)",
+                "paramDescription": "(Optional) City name",
+                "optional": true
+            },
+            {
+                "paramName": "lat",
+                "paramType": "Float",
+                "paramDescription": "(Optional) Latitude",
+                "optional": true
+            },
+            {
+                "paramName": "lng",
+                "paramType": "Float",
+                "paramDescription": "(Optional) Longitude",
+                "optional": true
+            },
+            {
+                "paramName": "zoneID",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Zone ID",
+                "optional": true
+            },
+            {
+                "paramName": "collection_frequency",
+                "paramType": "String",
+                "paramDescription": "(Optional) Collection frequency",
+                "optional": true
+            },
+            {
+                "paramName": "collection_days",
+                "paramType": "Array",
+                "paramDescription": "(Optional) Collection days",
+                "optional": true
+            },
+            {
+                "paramName": "collection_cycle",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Collection cycle",
+                "optional": true
+            },
+            {
+                "paramName": "notes",
+                "paramType": "Text",
+                "paramDescription": "(Optional) Notes",
+                "optional": true
+            },
+            {
+                "paramName": "active",
+                "paramType": "Boolean",
+                "paramDescription": "(Optional) Active status",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "branchID": 1,
+            "branch_name": "Main Branch Updated",
+            "active": true
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the branch has been updated"
+    },
+    {
+        "endpoint": "/manager/b2b/remove_branch",
+        "section": "B2B Branches",
+        "method": "DELETE",
+        "description": "Delete a branch",
+        "parameters": [
+            {
+                "paramName": "branchID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the branch to delete"
+            }
+        ],
+        "requestExample": {
+            "branchID": 1
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms that the branch has been deleted"
+    },
+    {
+        "endpoint": "/manager/b2b/orders_list",
+        "section": "B2B Orders",
+        "method": "GET",
+        "description": "Get list of B2B orders with filters and pagination",
+        "parameters": [
+            {
+                "paramName": "page",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Page number",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Results per page",
+                "optional": true
+            },
+            {
+                "paramName": "companyID",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Filter by company",
+                "optional": true
+            },
+            {
+                "paramName": "branchID",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Filter by branch",
+                "optional": true
+            },
+            {
+                "paramName": "status",
+                "paramType": "String",
+                "paramDescription": "(Optional) Filter by status: ordered, pickedup, processed, cancelled",
+                "optional": true
+            },
+            {
+                "paramName": "from_date",
+                "paramType": "Date",
+                "paramDescription": "(Optional) Filter orders from this date",
+                "optional": true
+            },
+            {
+                "paramName": "to_date",
+                "paramType": "Date",
+                "paramDescription": "(Optional) Filter orders to this date",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "page": 1,
+            "limit": 10,
+            "status": "ordered"
+        },
+        "responseExample": {
+            "orders": [
+                {
+                    "id": 1,
+                    "issue_date": "2024-01-15T10:00:00.000Z",
+                    "collection_date": "2024-01-17",
+                    "pickup_date": null,
+                    "processing_date": null,
+                    "status": "ordered",
+                    "notes": null,
+                    "auto_generated": true,
+                    "branch": {
+                        "id": 1,
+                        "branch_name": "Main Branch",
+                        "company": {
+                            "id": 1,
+                            "name": "ABC Corporation"
+                        }
+                    },
+                    "assigned_worker": null
+                }
+            ],
+            "total": 1
+        },
+        "responseDescription": "List of B2B orders with pagination info"
+    },
+    {
+        "endpoint": "/manager/b2b/order_details",
+        "section": "B2B Orders",
+        "method": "GET",
+        "description": "Get detailed information about a specific B2B order",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the order"
+            }
+        ],
+        "requestExample": {
+            "orderID": 1
+        },
+        "responseExample": {
+            "id": 1,
+            "issue_date": "2024-01-15T10:00:00.000Z",
+            "collection_date": "2024-01-17",
+            "pickup_date": "2024-01-17T14:30:00.000Z",
+            "processing_date": null,
+            "status": "pickedup",
+            "notes": "Collected successfully",
+            "cycle_number": 1,
+            "auto_generated": true,
+            "branch": {
+                "id": 1,
+                "branch_name": "Main Branch",
+                "address": "123 Main St",
+                "city": "الإسكندرية",
+                "company": {
+                    "id": 1,
+                    "name": "ABC Corporation"
+                }
+            },
+            "assigned_worker": {
+                "id": 1,
+                "name": "Ahmed Worker",
+                "phone": "+201234567890"
+            },
+            "details": [
+                {
+                    "id": 1,
+                    "waste_type": "بلاستيك",
+                    "weight": 5.5
+                }
+            ],
+            "receipt": null
+        },
+        "responseDescription": "Detailed order information with waste details"
+    },
+    {
+        "endpoint": "/manager/b2b/create_branch_order",
+        "section": "B2B Orders",
+        "method": "POST",
+        "description": "Manually create a new order for a branch",
+        "parameters": [
+            {
+                "paramName": "branchID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the branch to create order for"
+            },
+            {
+                "paramName": "collection_date",
+                "paramType": "Date",
+                "paramDescription": "(Optional) Scheduled collection date, defaults to today",
+                "optional": true
+            },
+            {
+                "paramName": "notes",
+                "paramType": "Text",
+                "paramDescription": "(Optional) Order notes",
+                "optional": true
+            },
+            {
+                "paramName": "staffID",
+                "paramType": "Number",
+                "paramDescription": "(Optional) ID of staff creating the order",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "branchID": 1,
+            "collection_date": "2024-01-20",
+            "notes": "Urgent pickup needed"
+        },
+        "responseExample": {
+            "id": 2,
+            "issue_date": "2024-01-15T10:00:00.000Z",
+            "collection_date": "2024-01-20",
+            "status": "ordered",
+            "notes": "Urgent pickup needed",
+            "auto_generated": false
+        },
+        "responseDescription": "The newly created order object"
+    },
+    {
+        "endpoint": "/manager/b2b/update_order_status",
+        "section": "B2B Orders",
+        "method": "POST",
+        "description": "Update the status of a B2B order. When marked as pickedup, cycle count increments. When cycle reaches limit, receipt is auto-generated.",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the order to update"
+            },
+            {
+                "paramName": "status",
+                "paramType": "String",
+                "paramDescription": "New status: ordered, pickedup, processed, cancelled"
+            },
+            {
+                "paramName": "cancellation_reason",
+                "paramType": "String",
+                "paramDescription": "(Optional) Reason for cancellation, required if status is cancelled",
+                "optional": true
+            },
+            {
+                "paramName": "staffID",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Staff ID for cancellation tracking",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "orderID": 1,
+            "status": "pickedup"
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms status update. May also trigger receipt creation if cycle is complete."
+    },
+    {
+        "endpoint": "/manager/b2b/assign_worker",
+        "section": "B2B Orders",
+        "method": "POST",
+        "description": "Assign a worker to a B2B order",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the order"
+            },
+            {
+                "paramName": "workerID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the worker to assign"
+            }
+        ],
+        "requestExample": {
+            "orderID": 1,
+            "workerID": 5
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms worker assignment"
+    },
+    {
+        "endpoint": "/manager/b2b/update_order_notes",
+        "section": "B2B Orders",
+        "method": "POST",
+        "description": "Update notes for a B2B order",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the order"
+            },
+            {
+                "paramName": "notes",
+                "paramType": "Text",
+                "paramDescription": "New notes text"
+            }
+        ],
+        "requestExample": {
+            "orderID": 1,
+            "notes": "Customer requested morning pickup"
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms notes update"
+    },
+    {
+        "endpoint": "/manager/b2b/update_order_info",
+        "section": "B2B Orders",
+        "method": "POST",
+        "description": "Update B2B order collection date and status",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the order"
+            },
+            {
+                "paramName": "collection_date",
+                "paramType": "Date",
+                "paramDescription": "(Optional) New collection date",
+                "optional": true
+            },
+            {
+                "paramName": "status",
+                "paramType": "String",
+                "paramDescription": "(Optional) New status",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "orderID": 1,
+            "collection_date": "2024-01-25",
+            "status": "ordered"
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms order info update"
+    },
+    {
+        "endpoint": "/manager/b2b/edit_order_details",
+        "section": "B2B Orders",
+        "method": "POST",
+        "description": "Edit waste details for a B2B order (add/update waste items)",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the B2B order"
+            },
+            {
+                "paramName": "details",
+                "paramType": "Array",
+                "paramDescription": "Array of waste detail objects with waste_type and weight"
+            }
+        ],
+        "requestExample": {
+            "orderID": 1,
+            "details": [
+                {
+                    "waste_type": "بلاستيك",
+                    "weight": 5.5
+                },
+                {
+                    "waste_type": "ورق",
+                    "weight": 3.2
+                }
+            ]
+        },
+        "responseExample": {
+            "message": "Done",
+            "totalPrice": 87.5
+        },
+        "responseDescription": "Confirms details update and returns calculated price based on B2B tier pricing"
+    },
+    {
+        "endpoint": "/manager/b2b/receipts_list",
+        "section": "B2B Receipts",
+        "method": "GET",
+        "description": "Get list of B2B receipts with filters",
+        "parameters": [
+            {
+                "paramName": "page",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Page number",
+                "optional": true
+            },
+            {
+                "paramName": "limit",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Results per page",
+                "optional": true
+            },
+            {
+                "paramName": "companyID",
+                "paramType": "Number",
+                "paramDescription": "(Optional) Filter by company",
+                "optional": true
+            },
+            {
+                "paramName": "completed",
+                "paramType": "Boolean",
+                "paramDescription": "(Optional) Filter by completion status",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "page": 1,
+            "limit": 10,
+            "completed": false
+        },
+        "responseExample": [
+            {
+                "id": 1,
+                "amount": 150.5,
+                "way": "كاش",
+                "completed": false,
+                "issue_date": "2024-01-15T10:00:00.000Z",
+                "complete_date": null,
+                "company_name": "ABC Corporation",
+                "related_orders": [
+                    {
+                        "id": 1,
+                        "status": "processed"
+                    }
+                ]
+            }
+        ],
+        "responseDescription": "List of B2B receipts"
+    },
+    {
+        "endpoint": "/manager/b2b/receipt_details",
+        "section": "B2B Receipts",
+        "method": "GET",
+        "description": "Get detailed information about a B2B receipt including all related orders and waste summary",
+        "parameters": [
+            {
+                "paramName": "receiptID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the receipt"
+            }
+        ],
+        "requestExample": {
+            "receiptID": 1
+        },
+        "responseExample": {
+            "id": 1,
+            "issue_date": "2024-01-15T10:00:00.000Z",
+            "complete_date": null,
+            "amount": 150.5,
+            "way": "كاش",
+            "completed": false,
+            "company": {
+                "id": 1,
+                "name": "ABC Corporation",
+                "contact_person": "John Doe",
+                "phone": "+201234567890"
+            },
+            "orders": [
+                {
+                    "orderID": 1,
+                    "waste_type": "بلاستيك",
+                    "weight": 5.5
+                },
+                {
+                    "orderID": 1,
+                    "waste_type": "ورق",
+                    "weight": 3.2
+                }
+            ],
+            "order_sum": [
+                {
+                    "waste_type": "بلاستيك",
+                    "weight": 5.5,
+                    "tier_price": 10
+                },
+                {
+                    "waste_type": "ورق",
+                    "weight": 3.2,
+                    "tier_price": 8
+                }
+            ],
+            "final_total": 80.6
+        },
+        "responseDescription": "Detailed receipt with waste summary and tier pricing"
+    },
+    {
+        "endpoint": "/manager/b2b/create_receipt",
+        "section": "B2B Receipts",
+        "method": "POST",
+        "description": "Manually create a receipt for a B2B order",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the B2B order"
+            },
+            {
+                "paramName": "amount",
+                "paramType": "Float",
+                "paramDescription": "Receipt amount"
+            },
+            {
+                "paramName": "way",
+                "paramType": "String",
+                "paramDescription": "Payment method: كاش, قسيمة شراء, محفظة الكترونية, انستا باي"
+            }
+        ],
+        "requestExample": {
+            "orderID": 1,
+            "amount": 150.5,
+            "way": "كاش"
+        },
+        "responseExample": {
+            "id": 1,
+            "amount": 150.5,
+            "way": "كاش",
+            "completed": false,
+            "issue_date": "2024-01-15T10:00:00.000Z"
+        },
+        "responseDescription": "The newly created receipt object"
+    },
+    {
+        "endpoint": "/manager/b2b/complete_receipt",
+        "section": "B2B Receipts",
+        "method": "POST",
+        "description": "Mark a B2B receipt as completed (payment received)",
+        "parameters": [
+            {
+                "paramName": "receiptID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the receipt to complete"
+            }
+        ],
+        "requestExample": {
+            "receiptID": 1
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms receipt completion with timestamp"
+    },
+    {
+        "endpoint": "/manager/b2b/not_complete_receipt",
+        "section": "B2B Receipts",
+        "method": "POST",
+        "description": "Mark a B2B receipt as not completed (revert completion)",
+        "parameters": [
+            {
+                "paramName": "receiptID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the receipt"
+            }
+        ],
+        "requestExample": {
+            "receiptID": 1
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms receipt marked as not completed"
+    },
+    {
+        "endpoint": "/manager/b2b/waste_prices",
+        "section": "B2B Prices",
+        "method": "GET",
+        "description": "Get B2B waste prices for a specific city (tier-based pricing)",
+        "parameters": [
+            {
+                "paramName": "city",
+                "paramType": "String",
+                "paramDescription": "(Optional) City name, defaults to الإسكندرية",
+                "optional": true
+            }
+        ],
+        "requestExample": {
+            "city": "الإسكندرية"
+        },
+        "responseExample": [
+            {
+                "id": 1,
+                "city": "الإسكندرية",
+                "teir1_price": 5,
+                "teir2_price": 8,
+                "teir3_price": 10,
+                "teir4_price": 12,
+                "waste_type": {
+                    "id": 1,
+                    "name": "بلاستيك"
+                }
+            },
+            {
+                "id": 2,
+                "city": "الإسكندرية",
+                "teir1_price": 4,
+                "teir2_price": 6,
+                "teir3_price": 8,
+                "teir4_price": 10,
+                "waste_type": {
+                    "id": 2,
+                    "name": "ورق"
+                }
+            }
+        ],
+        "responseDescription": "List of B2B waste prices with tier pricing. Tier 1: < 4KG, Tier 2: < 7KG, Tier 3: < 10KG, Tier 4: >= 10KG"
+    },
+    {
+        "endpoint": "/manager/b2b/edit_waste_prices",
+        "section": "B2B Prices",
+        "method": "POST",
+        "description": "Edit B2B waste prices (batch update)",
+        "parameters": [
+            {
+                "paramName": "prices",
+                "paramType": "Array",
+                "paramDescription": "Array of price objects to update"
+            }
+        ],
+        "requestExample": {
+            "prices": [
+                {
+                    "id": 1,
+                    "teir1_price": 6,
+                    "teir2_price": 9,
+                    "teir3_price": 11,
+                    "teir4_price": 14
+                },
+                {
+                    "id": 2,
+                    "teir1_price": 5,
+                    "teir2_price": 7,
+                    "teir3_price": 9,
+                    "teir4_price": 11
+                }
+            ]
+        },
+        "responseExample": "Done",
+        "responseDescription": "Confirms prices have been updated"
+    },
+    {
+        "endpoint": "/manager/b2b/add_waste_prices_auto",
+        "section": "B2B Prices",
+        "method": "POST",
+        "description": "Automatically create B2B price entries for all waste types in a specific city",
+        "parameters": [
+            {
+                "paramName": "city",
+                "paramType": "String",
+                "paramDescription": "City name to create prices for"
+            }
+        ],
+        "requestExample": {
+            "city": "القاهرة"
+        },
+        "responseExample": {
+            "created": 10,
+            "skipped": 2
+        },
+        "responseDescription": "Number of price entries created and skipped (already existed)"
+    }
+]
