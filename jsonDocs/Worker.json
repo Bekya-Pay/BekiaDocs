@@ -143,7 +143,7 @@
         "endpoint": "/worker/assigned_orders",
         "section": "worker",
         "method": "GET",
-        "description": "Retrieve the list of active orders Assigned to the Worker Sorted By Expected Pick-up Date Setted By Customer",
+        "description": "Retrieve the list of active orders Assigned to the Worker Sorted By Expected Pick-up Date Setted By Customer. Returns both normal customer orders and B2B orders. For B2B orders, the response includes the 'order_number' field (e.g., 'B1', 'B2', 'B33').",
         "parameters": [
             {
                 "paramName": "userID",
@@ -234,6 +234,36 @@
                 "has_receipt": true,
                 "furnture": true
 
+            },
+            {
+                "id": 20001,
+                "order_number": "B1",
+                "order_date": "2025-02-17T03:37:39.000Z",
+                "pickup_date": "2025-03-02T22:00:00.000Z",
+                "proccessing_date": null,
+                "price": null,
+                "status": "ordered",
+                "is_b2b_order": true,
+                "order_type": "b2b",
+                "address": {
+                    "id": 1,
+                    "name": "Main Branch",
+                    "address": "123 Main St",
+                    "city": "الإسكندرية",
+                    "zone": {
+                        "id": 1,
+                        "city": "Alexandria",
+                        "zone": "ال 21",
+                        "largeZone": "العجمي",
+                        "daysString": ""
+                    }
+                },
+                "customer": {
+                    "id": "B2B-1",
+                    "name": "ABC Corporation"
+                },
+                "has_receipt": false,
+                "furnture": false
             }
         ],
         "responseDescription": "List of active orders for the worker"
@@ -308,7 +338,7 @@
         "endpoint": "/worker/order_details",
         "section": "worker",
         "method": "GET",
-        "description": "Retrieve the details of a specific order",
+        "description": "Retrieve the details of a specific normal (customer) order. For B2B orders, use /worker/b2b/order_details instead.",
         "parameters": [
             {
                 "paramName": "orderID",
@@ -805,7 +835,7 @@
         "endpoint": "/worker/mark_pickedup",
         "section": "worker",
         "method": "POST",
-        "description": "Mark Order as Picked-up When the Worker Pick it Up from The Customer",
+        "description": "Mark a normal (customer) order as Picked-up When the Worker Pick it Up from The Customer. For B2B orders, use /worker/b2b/mark_pickedup instead.",
         "parameters": [
             {
                 "paramName": "orderID",
@@ -908,6 +938,175 @@
         "responseParameters": [],
         "responseExample": "Done",
         "responseDescription": "Confirms that the Order has been marked Picked-up and Quntity and Price are Set"
+    },
+    {
+        "endpoint": "/worker/b2b/order_details",
+        "section": "worker",
+        "method": "GET",
+        "description": "Retrieve the details of a specific B2B order in native B2B format",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the B2B order"
+            }
+        ],
+        "requestExample": {
+            "orderID": 20001
+        },
+        "responseParameters": [
+            {
+                "paramName": "id",
+                "paramType": "Number",
+                "paramDescription": "The unique identifier of the B2B order"
+            },
+            {
+                "paramName": "order_number",
+                "paramType": "String",
+                "paramDescription": "The B2B order number (e.g., B1, B2, B33)"
+            },
+            {
+                "paramName": "status",
+                "paramType": "String",
+                "paramDescription": "Order status: ordered, pickedup, processed, or cancelled"
+            },
+            {
+                "paramName": "branch",
+                "paramType": "Object",
+                "paramDescription": "Branch information associated with the order"
+            },
+            {
+                "paramName": "details",
+                "paramType": "Array",
+                "paramDescription": "Array of waste details for the order"
+            }
+        ],
+        "responseExample": {
+            "id": 20001,
+            "order_number": "B1",
+            "issue_date": "2024-01-15T10:00:00.000Z",
+            "collection_date": "2024-01-17",
+            "pickup_date": null,
+            "processing_date": null,
+            "status": "ordered",
+            "notes": null,
+            "cycle_number": null,
+            "auto_generated": true,
+            "branch": {
+                "id": 1,
+                "branch_name": "Main Branch",
+                "address": "123 Main St",
+                "city": "الإسكندرية",
+                "company": {
+                    "id": 1,
+                    "name": "ABC Corporation"
+                },
+                "b2b_zone": {
+                    "id": 1,
+                    "city": "Alexandria",
+                    "zone": "ال 21",
+                    "largeZone": "العجمي"
+                }
+            },
+            "assigned_worker": {
+                "id": 1,
+                "name": "Ahmed Worker",
+                "phone": "+201234567890"
+            },
+            "details": [
+                {
+                    "id": 1,
+                    "waste_type": "بلاستيك",
+                    "weight": 5.5,
+                    "description": null,
+                    "image": null
+                }
+            ],
+            "receipt": null
+        },
+        "responseDescription": "Detailed B2B order information with branch, company, and waste details"
+    },
+    {
+        "endpoint": "/worker/b2b/mark_pickedup",
+        "section": "worker",
+        "method": "POST",
+        "description": "Mark a B2B order as Picked-up when the worker collects the waste from the branch. This endpoint handles B2B-specific cycle logic and receipt generation.",
+        "parameters": [
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the B2B order"
+            },
+            {
+                "paramName": "nowDate",
+                "paramType": "Date",
+                "paramDescription": "The current date/time to set as pickup date"
+            },
+            {
+                "paramName": "details",
+                "paramType": "Array",
+                "paramDescription": "Array of waste details with weight and type for each waste category"
+            },
+            {
+                "paramName": "details.category",
+                "paramType": "String",
+                "paramDescription": "The name of the waste type (e.g., 'الكانز', 'الورق والكتب')"
+            },
+            {
+                "paramName": "details.weight",
+                "paramType": "Number",
+                "paramDescription": "The weight of the waste type in kilograms"
+            },
+            {
+                "paramName": "details.image",
+                "paramType": "String",
+                "paramDescription": "(optional) Image URL of the waste"
+            },
+            {
+                "paramName": "details.description",
+                "paramType": "String",
+                "paramDescription": "(optional) Description of the waste"
+            }
+        ],
+        "requestExample": {
+            "orderID": 20001,
+            "nowDate": "2024-01-17T14:30:00.000Z",
+            "details": [
+                {
+                    "category": "الكانز",
+                    "weight": 20,
+                    "image": "https://example.com/waste.jpg"
+                },
+                {
+                    "category": "الورق والكتب",
+                    "weight": 15,
+                    "description": "Clean paper waste"
+                }
+            ]
+        },
+        "responseParameters": [
+            {
+                "paramName": "message",
+                "paramType": "String",
+                "paramDescription": "Success message"
+            },
+            {
+                "paramName": "totalWeight",
+                "paramType": "Number",
+                "paramDescription": "Total weight of all waste collected"
+            },
+            {
+                "paramName": "orderID",
+                "paramType": "Number",
+                "paramDescription": "The ID of the order that was marked as picked up"
+            }
+        ],
+        "responseExample": {
+            "message": "B2B Order Collected Successfully",
+            "totalWeight": 35,
+            "orderID": 20001
+        },
+        "responseDescription": "Confirms that the B2B order has been marked as picked up. The branch cycle count is incremented, and if the cycle limit is reached, a receipt is automatically generated."
     },
     {
         "endpoint": "/worker/submit_affiliate_form",
