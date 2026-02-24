@@ -1,7 +1,7 @@
 [
     {
         "endpoint": "/manager/b2b/companies_list",
-        "section": "B2B Companies",
+        "section": "b2b",
         "method": "GET",
         "description": "Retrieve the list of all B2B companies with pagination and search",
         "parameters": [
@@ -58,7 +58,7 @@
     },
     {
         "endpoint": "/manager/b2b/company_info",
-        "section": "B2B Companies",
+        "section": "b2b",
         "method": "GET",
         "description": "Get detailed information about a specific B2B company including its branches",
         "parameters": [
@@ -101,7 +101,7 @@
     },
     {
         "endpoint": "/manager/b2b/add_company",
-        "section": "B2B Companies",
+        "section": "b2b",
         "method": "POST",
         "description": "Add a new B2B company to the system",
         "parameters": [
@@ -198,7 +198,7 @@
     },
     {
         "endpoint": "/manager/b2b/update_company",
-        "section": "B2B Companies",
+        "section": "b2b",
         "method": "POST",
         "description": "Update an existing B2B company's information",
         "parameters": [
@@ -291,7 +291,7 @@
     },
     {
         "endpoint": "/manager/b2b/remove_company",
-        "section": "B2B Companies",
+        "section": "b2b",
         "method": "DELETE",
         "description": "Delete a B2B company and all its branches",
         "parameters": [
