@@ -941,7 +941,7 @@
     },
     {
         "endpoint": "/worker/b2b/order_details",
-        "section": "Worker B2B",
+        "section": "worker",
         "method": "GET",
         "description": "Get full details of a B2B order by ID or order number. Returns the order with branch, company, zone, assigned worker, details (waste items), and receipt if any. Requires worker JWT (Authorize).",
         "parameters": [
@@ -1027,7 +1027,7 @@
     },
     {
         "endpoint": "/worker/b2b/mark_pickedup",
-        "section": "Worker B2B",
+        "section": "worker",
         "method": "POST",
         "description": "Mark a B2B order as picked up (collected). Worker submits waste details (categories, weights, optional images/descriptions). Order must be in 'ordered' status and not cancelled. Branch cycle is incremented and receipt processing may be triggered. Requires worker JWT (Authorize).",
         "parameters": [
